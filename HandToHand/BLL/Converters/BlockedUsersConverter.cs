@@ -14,7 +14,7 @@ namespace BLL.Converters
         {
             return new BlockedUser
             {
-
+                //אנחנו מנסות לראות אם זה עובד
                 UserId = blockedUser.UserId
             };
 
