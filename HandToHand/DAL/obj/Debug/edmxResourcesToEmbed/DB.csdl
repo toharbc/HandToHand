@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HandToHanddModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BlockedUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__BlockedUs__UserI__25869641" FromRole="BlockedUsers" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="DaysForVolunteer">
+    <Key>
+      <PropertyRef Name="DaysForVolunteerId" />
+    </Key>
+    <Property Name="DaysForVolunteerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DayofWeek" Type="Int64" Nullable="false" />
+    <Property Name="HourStart" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="HourEnd" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="RangeHours" Type="Int64" Nullable="false" />
+    <Property Name="TypesOfTimesId" Type="Int64" Nullable="false" />
+    <Property Name="VolunteerId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="TypesOfTime" Relationship="Self.FK__DaysForVo__Types__300424B4" FromRole="DaysForVolunteer" ToRole="TypesOfTimes" />
+    <NavigationProperty Name="User" Relationship="Self.FK__DaysForVo__Volun__30F848ED" FromRole="DaysForVolunteer" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="HelpRequest">
+    <Key>
+      <PropertyRef Name="HelpRequestId" />
+    </Key>
+    <Property Name="HelpRequestId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RequesterId" Type="Int64" Nullable="false" />
+    <Property Name="TypeOfVolunteerId" Type="Int64" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="StartHour" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="EndHour" Type="Time" Nullable="false" Precision="7" />
+    <NavigationProperty Name="User" Relationship="Self.FK__HelpReque__Reque__37A5467C" FromRole="HelpRequests" ToRole="Users" />
+    <NavigationProperty Name="TypeOfVolunteering" Relationship="Self.FK__HelpReque__TypeO__38996AB5" FromRole="HelpRequests" ToRole="TypeOfVolunteering" />
+    <NavigationProperty Name="RequestsForVolunteers" Relationship="Self.FK__RequestsF__HelpR__3B75D760" FromRole="HelpRequests" ToRole="RequestsForVolunteer" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ManagerId" />
+    </Key>
+    <Property Name="ManagerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestsForVolunteer">
+    <Key>
+      <PropertyRef Name="RequestForVolunteerId" />
+    </Key>
+    <Property Name="RequestForVolunteerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HelpRequestId" Type="Int64" Nullable="false" />
+    <Property Name="VolunteerId" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Done" Type="Boolean" Nullable="false" />
+    <Property Name="Review" Type="Int64" Nullable="false" />
+    <Property Name="Comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="HelpRequest" Relationship="Self.FK__RequestsF__HelpR__3B75D760" FromRole="RequestsForVolunteer" ToRole="HelpRequests" />
+    <NavigationProperty Name="User" Relationship="Self.FK__RequestsF__Volun__3C69FB99" FromRole="RequestsForVolunteer" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="TypeOfVolunteering">
+    <Key>
+      <PropertyRef Name="TypeOfVolunteeringId" />
+    </Key>
+    <Property Name="TypeOfVolunteeringId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeOfVolunteeringName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="HelpRequests" Relationship="Self.FK__HelpReque__TypeO__38996AB5" FromRole="TypeOfVolunteering" ToRole="HelpRequests" />
+    <NavigationProperty Name="VolunteeringForUsers" Relationship="Self.FK__Volunteer__TypeO__31EC6D26" FromRole="TypeOfVolunteering" ToRole="VolunteeringForUsers" />
+  </EntityType>
+  <EntityType Name="TypesOfTime">
+    <Key>
+      <PropertyRef Name="TypesOfTimesId" />
+    </Key>
+    <Property Name="TypesOfTimesId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypesOfTimesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DaysForVolunteers" Relationship="Self.FK__DaysForVo__Types__300424B4" FromRole="TypesOfTimes" ToRole="DaysForVolunteer" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserLastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPhone" Type="Int64" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="BlockedUser" Relationship="Self.FK__BlockedUs__UserI__25869641" FromRole="Users" ToRole="BlockedUsers" />
+    <NavigationProperty Name="DaysForVolunteers" Relationship="Self.FK__DaysForVo__Volun__30F848ED" FromRole="Users" ToRole="DaysForVolunteer" />
+    <NavigationProperty Name="HelpRequests" Relationship="Self.FK__HelpReque__Reque__37A5467C" FromRole="Users" ToRole="HelpRequests" />
+    <NavigationProperty Name="RequestsForVolunteers" Relationship="Self.FK__RequestsF__Volun__3C69FB99" FromRole="Users" ToRole="RequestsForVolunteer" />
+    <NavigationProperty Name="VolunteeringForUsers" Relationship="Self.FK__Volunteer__UserI__32E0915F" FromRole="Users" ToRole="VolunteeringForUsers" />
+  </EntityType>
+  <EntityType Name="VolunteeringForUser">
+    <Key>
+      <PropertyRef Name="VolunteeringForUsersId" />
+    </Key>
+    <Property Name="VolunteeringForUsersId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeOfVolunteerId" Type="Int64" Nullable="false" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="TypeOfVolunteering" Relationship="Self.FK__Volunteer__TypeO__31EC6D26" FromRole="VolunteeringForUsers" ToRole="TypeOfVolunteering" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Volunteer__UserI__32E0915F" FromRole="VolunteeringForUsers" ToRole="Users" />
+  </EntityType>
+  <Association Name="FK__BlockedUs__UserI__25869641">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="BlockedUsers" Type="Self.BlockedUser" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="BlockedUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DaysForVo__Types__300424B4">
+    <End Role="TypesOfTimes" Type="Self.TypesOfTime" Multiplicity="1" />
+    <End Role="DaysForVolunteer" Type="Self.DaysForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesOfTimes">
+        <PropertyRef Name="TypesOfTimesId" />
+      </Principal>
+      <Dependent Role="DaysForVolunteer">
+        <PropertyRef Name="TypesOfTimesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DaysForVo__Volun__30F848ED">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="DaysForVolunteer" Type="Self.DaysForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DaysForVolunteer">
+        <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HelpReque__Reque__37A5467C">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="HelpRequests" Type="Self.HelpRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="HelpRequests">
+        <PropertyRef Name="RequesterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HelpReque__TypeO__38996AB5">
+    <End Role="TypeOfVolunteering" Type="Self.TypeOfVolunteering" Multiplicity="1" />
+    <End Role="HelpRequests" Type="Self.HelpRequest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfVolunteering">
+        <PropertyRef Name="TypeOfVolunteeringId" />
+      </Principal>
+      <Dependent Role="HelpRequests">
+        <PropertyRef Name="TypeOfVolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsF__HelpR__3B75D760">
+    <End Role="HelpRequests" Type="Self.HelpRequest" Multiplicity="1" />
+    <End Role="RequestsForVolunteer" Type="Self.RequestsForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HelpRequests">
+        <PropertyRef Name="HelpRequestId" />
+      </Principal>
+      <Dependent Role="RequestsForVolunteer">
+        <PropertyRef Name="HelpRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsF__Volun__3C69FB99">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="RequestsForVolunteer" Type="Self.RequestsForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="RequestsForVolunteer">
+        <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Volunteer__TypeO__31EC6D26">
+    <End Role="TypeOfVolunteering" Type="Self.TypeOfVolunteering" Multiplicity="1" />
+    <End Role="VolunteeringForUsers" Type="Self.VolunteeringForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfVolunteering">
+        <PropertyRef Name="TypeOfVolunteeringId" />
+      </Principal>
+      <Dependent Role="VolunteeringForUsers">
+        <PropertyRef Name="TypeOfVolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Volunteer__UserI__32E0915F">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="VolunteeringForUsers" Type="Self.VolunteeringForUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="VolunteeringForUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HandToHanddEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BlockedUsers" EntityType="Self.BlockedUser" />
+    <EntitySet Name="DaysForVolunteers" EntityType="Self.DaysForVolunteer" />
+    <EntitySet Name="HelpRequests" EntityType="Self.HelpRequest" />
+    <EntitySet Name="Managers" EntityType="Self.Manager" />
+    <EntitySet Name="RequestsForVolunteers" EntityType="Self.RequestsForVolunteer" />
+    <EntitySet Name="TypeOfVolunteerings" EntityType="Self.TypeOfVolunteering" />
+    <EntitySet Name="TypesOfTimes" EntityType="Self.TypesOfTime" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="VolunteeringForUsers" EntityType="Self.VolunteeringForUser" />
+    <AssociationSet Name="FK__BlockedUs__UserI__25869641" Association="Self.FK__BlockedUs__UserI__25869641">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BlockedUsers" EntitySet="BlockedUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DaysForVo__Types__300424B4" Association="Self.FK__DaysForVo__Types__300424B4">
+      <End Role="TypesOfTimes" EntitySet="TypesOfTimes" />
+      <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DaysForVo__Volun__30F848ED" Association="Self.FK__DaysForVo__Volun__30F848ED">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HelpReque__Reque__37A5467C" Association="Self.FK__HelpReque__Reque__37A5467C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="HelpRequests" EntitySet="HelpRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HelpReque__TypeO__38996AB5" Association="Self.FK__HelpReque__TypeO__38996AB5">
+      <End Role="TypeOfVolunteering" EntitySet="TypeOfVolunteerings" />
+      <End Role="HelpRequests" EntitySet="HelpRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsF__HelpR__3B75D760" Association="Self.FK__RequestsF__HelpR__3B75D760">
+      <End Role="HelpRequests" EntitySet="HelpRequests" />
+      <End Role="RequestsForVolunteer" EntitySet="RequestsForVolunteers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsF__Volun__3C69FB99" Association="Self.FK__RequestsF__Volun__3C69FB99">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RequestsForVolunteer" EntitySet="RequestsForVolunteers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Volunteer__TypeO__31EC6D26" Association="Self.FK__Volunteer__TypeO__31EC6D26">
+      <End Role="TypeOfVolunteering" EntitySet="TypeOfVolunteerings" />
+      <End Role="VolunteeringForUsers" EntitySet="VolunteeringForUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Volunteer__UserI__32E0915F" Association="Self.FK__Volunteer__UserI__32E0915F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="VolunteeringForUsers" EntitySet="VolunteeringForUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

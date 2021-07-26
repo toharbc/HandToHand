@@ -1,0 +1,12 @@
+E:\st\project\HandToHand\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\st\project\HandToHand\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\st\project\HandToHand\DAL\bin\Debug\DAL.dll.config
+E:\st\project\HandToHand\DAL\bin\Debug\DAL.dll
+E:\st\project\HandToHand\DAL\bin\Debug\DAL.pdb
+E:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.dll
+E:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.xml
+E:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\st\project\HandToHand\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\st\project\HandToHand\DAL\obj\Debug\DAL.dll
+E:\st\project\HandToHand\DAL\obj\Debug\DAL.pdb
