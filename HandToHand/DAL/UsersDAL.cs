@@ -16,7 +16,7 @@ namespace DAL
             }
         }
 
-        public void AddUser(User user)
+        public void AddUser(User user)   
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
