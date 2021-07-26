@@ -10,6 +10,7 @@ namespace BLL.Converters
 {
     public static class HelpRequestsConverter
     {
+        //הערה סתם
         public static HelpRequest Map(HelpRequestsDTO helpRequest)
         {
             return new HelpRequest
