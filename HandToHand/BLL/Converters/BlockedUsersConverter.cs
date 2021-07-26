@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using DAL;
 
-namespace BLL.Converters
+namespace BLL.Converters   
 {
      public static class BlockedUsersConverter
     {
@@ -14,7 +14,7 @@ namespace BLL.Converters
         {
             return new BlockedUser
             {
-
+                //אנחנו מנסות לראות אם זה עובד
                 UserId = blockedUser.UserId
             };
 
