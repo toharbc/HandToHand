@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DTO;
 using DAL;
 
-namespace BLL.Converters
+namespace BLL.Converters   
 {
      public static class BlockedUsersConverter
     {

@@ -12,7 +12,7 @@ namespace BLL.Converters
     {
         public static HelpRequest Map(HelpRequestsDTO helpRequest)
         {
-            return new HelpRequest
+            return new HelpRequest    
             {
                 HelpRequestId = helpRequest.HelpRequestId,
                 RequesterId = helpRequest.RequesterId,
