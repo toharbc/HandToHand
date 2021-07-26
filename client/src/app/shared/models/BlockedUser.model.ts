@@ -3,6 +3,6 @@ export class BlockedUser{
     public  UserId?:number 
     )
 {
-
+//try
 }
 }
