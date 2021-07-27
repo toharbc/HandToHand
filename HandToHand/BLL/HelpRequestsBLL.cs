@@ -5,19 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using BLL.Converters;
 
 namespace BLL
 {
     public class HelpRequestsBLL
     {
-        public static List<HelpRequestsDTO> GetAllHelpRequests()
+        HelpRequestsDAL helpRequestsDAL = new HelpRequestsDAL();
+        public  List<HelpRequestsDTO> GetAllHelpRequests()
         {
-            throw new NotImplementedException();
+
+            return HelpRequestsConverter.Map(helpRequestsDAL.GetAllHelpRequests());
         }
 
-        public void AddHelpRequests(HelpRequestsDTO helpRequest)
+        public void AddHelpRequest(HelpRequestsDTO helpRequest)
         {
-            throw new NotImplementedException();
+            helpRequestsDAL.AddHelpRequest(HelpRequestsConverter.Map(helpRequest));
         }
     }
 }

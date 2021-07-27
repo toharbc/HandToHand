@@ -26,10 +26,7 @@ namespace BLL.Converters
             };
         }
 
-        internal static object Map(DaysForVolunteerDTO daysForVolunteer)
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public static UserDTO Map(User user)
         {

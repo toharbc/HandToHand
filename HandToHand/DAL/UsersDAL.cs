@@ -25,5 +25,9 @@ namespace DAL
             }
         }
 
+        public void AddHelpRequests(HelpRequest helpRequest)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -5,19 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using BLL.Converters;
 
 namespace BLL
 {
     public class RequestsForVolunteerBLL
     {
+        RequestsForVolunteerDAL requestsForVolunteerDAL = new RequestsForVolunteerDAL();
         public List<RequestsForVolunteerDTO> GetAllRequestsForVolunteers()
         {
-            throw new NotImplementedException();
+            return   RequestsForVolunteerConverter.Map(requestsForVolunteerDAL.GetAllRequestsForVolunteers());
         }
 
         public void AddRequestsForVolunteer(RequestsForVolunteerDTO requestsForVolunteer)
         {
-            throw new NotImplementedException();
+            RequestsForVolunteerDAL.AddRequestsForVolunteer(RequestsForVolunteerConverter.Map(requestsForVolunteer));
         }
     }
 }

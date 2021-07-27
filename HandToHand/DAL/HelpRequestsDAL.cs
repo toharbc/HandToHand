@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class RequestsForVolunteerDAL
+     public class HelpRequestsDAL
     {
-        public  List<RequestsForVolunteer> GetAllRequestsForVolunteers()
+        public  List<HelpRequest> GetAllHelpRequests()
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                return db.RequestsForVolunteers.ToList();
+                return db.HelpRequests.ToList();
             }
-        }
 
-        public static void AddRequestsForVolunteer(RequestsForVolunteer requestsForVolunteer)
+        }
+        public void AddHelpRequest(HelpRequest helpRequest)
         {
+
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.RequestsForVolunteers.Add(requestsForVolunteer);
+                db.HelpRequests.Add(helpRequest);
                 db.SaveChanges();
             }
-             
         }
     }
 }
