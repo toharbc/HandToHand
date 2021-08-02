@@ -1,8 +1,7 @@
-export class BlockedUser{
+export class BlockedUser {
     constructor(
-    public  UserId?:number 
-    )
-{
-//try
-}
+        public UserId?: number
+    ) {
+
+    }
 }
