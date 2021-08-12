@@ -1,0 +1,37 @@
+<form (ngSubmit)="register()">
+<div>
+    <p>מייל</p>
+    <input type="email" name="email" [(ngModel)]="user.UserMail">
+</div>
+
+<div>
+    <p>שם פרטי</p>
+    <input type="text" name="first-name" [(ngModel)]="user.UserFirstName">
+</div>
+<div>
+    <p>שם משפחה</p>
+    <input type="text" name="last-name" [(ngModel)]="user.UserLastName">
+</div>
+    <div>
+        <p>טלפון</p>
+    <input type="tel" name="phone" [(ngModel)]="user.UserPhone">
+</div>
+
+    <div>
+        <p>סיסמה</p>
+    <input type="password" name="password" [(ngModel)]="user.UserPassword">
+</div>
+
+    <div>
+        <p>אשר סיסמה</p>
+    <input type="password" name="password-confirm" >
+</div>
+
+
+    <div>
+        <p>כתובת</p>
+    <input type="text" name="address" [(ngModel)]="user.UserAdress">
+    </div>
+    <input type="submit" value="save">
+
+</form>
