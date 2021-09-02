@@ -7,7 +7,7 @@ export class BlockedService {
 
   constructor(public http:HttpClient) { }
   GetAllBlockedUsers()
-  {return this.http.get()
+  {return this.http.get('')
 
   }
 }

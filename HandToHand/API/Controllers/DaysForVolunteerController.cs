@@ -4,12 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using BLL;
 using DTO;
 
 
 namespace API.Controllers
 {
+    [EnableCors("*", "*", "*")]
     public class DaysForVolunteerController : ApiController
     {
         DaysForVolunteerBLL daysForVolunteerBLL = new DaysForVolunteerBLL();
@@ -27,7 +29,7 @@ namespace API.Controllers
         public void AddDaysForVolunteer([FromBody] DaysForVolunteerDTO daysForVolunteer)
         {
 
-            daysForVolunteerBLL.AddUser(daysForVolunteer);
+            daysForVolunteerBLL.AddDaysForVolunteer(daysForVolunteer);
         }
 
         

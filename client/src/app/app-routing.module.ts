@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/shared/register/register.compone
 import { WelcomeComponent } from './components/shared/welcome/welcome.component';
 
 const routes: Routes = [
+  {path:'' , component:WelcomeComponent},
   {path:'welcome' , component:WelcomeComponent},
   {path:'register', component:RegisterComponent},
   {path:'new-help-request', component:NewHelpRequestComponent}

@@ -94,3 +94,6 @@ E:\st\project\HandToHand\API\bin\DTO.dll
 E:\st\project\HandToHand\API\bin\EntityFramework.SqlServer.dll
 E:\st\project\HandToHand\API\bin\DTO.pdb
 E:\st\project\HandToHand\API\bin\EntityFramework.SqlServer.xml
+E:\st\project\HandToHand\API\bin\System.Web.Cors.dll
+E:\st\project\HandToHand\API\bin\System.Web.Http.Cors.dll
+E:\st\project\HandToHand\API\bin\System.Web.Http.Cors.xml

@@ -26,7 +26,6 @@ namespace DAL
         }
     
         public virtual DbSet<BlockedUser> BlockedUsers { get; set; }
-        public virtual DbSet<DaysForVolunteer> DaysForVolunteers { get; set; }
         public virtual DbSet<HelpRequest> HelpRequests { get; set; }
         public virtual DbSet<Manager> Managers { get; set; }
         public virtual DbSet<RequestsForVolunteer> RequestsForVolunteers { get; set; }
@@ -34,5 +33,6 @@ namespace DAL
         public virtual DbSet<TypesOfTime> TypesOfTimes { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<VolunteeringForUser> VolunteeringForUsers { get; set; }
+        public virtual DbSet<DaysForVolunteer> DaysForVolunteers { get; set; }
     }
 }

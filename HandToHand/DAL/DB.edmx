@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HandToHanddModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HandToHanddModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BlockedUsers">
           <Key>
             <PropertyRef Name="UserId" />
@@ -244,8 +244,7 @@
             <End Role="VolunteeringForUsers" EntitySet="VolunteeringForUsers" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HandToHanddModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -255,20 +254,6 @@
           </Key>
           <Property Name="UserId" Type="Int64" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK__BlockedUs__UserI__25869641" FromRole="BlockedUsers" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="DaysForVolunteer">
-          <Key>
-            <PropertyRef Name="DaysForVolunteerId" />
-          </Key>
-          <Property Name="DaysForVolunteerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DayofWeek" Type="Int64" Nullable="false" />
-          <Property Name="HourStart" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="HourEnd" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="RangeHours" Type="Int64" Nullable="false" />
-          <Property Name="TypesOfTimesId" Type="Int64" Nullable="false" />
-          <Property Name="VolunteerId" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="TypesOfTime" Relationship="Self.FK__DaysForVo__Types__300424B4" FromRole="DaysForVolunteer" ToRole="TypesOfTimes" />
-          <NavigationProperty Name="User" Relationship="Self.FK__DaysForVo__Volun__30F848ED" FromRole="DaysForVolunteer" ToRole="Users" />
         </EntityType>
         <EntityType Name="HelpRequest">
           <Key>
@@ -322,7 +307,7 @@
           </Key>
           <Property Name="TypesOfTimesId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TypesOfTimesName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="DaysForVolunteers" Relationship="Self.FK__DaysForVo__Types__300424B4" FromRole="TypesOfTimes" ToRole="DaysForVolunteer" />
+          <NavigationProperty Name="DaysForVolunteers" Relationship="HandToHanddModel.FK__DaysForVo__Types__300424B4" FromRole="TypesOfTime" ToRole="DaysForVolunteer" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -336,10 +321,10 @@
           <Property Name="UserMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserAdress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="BlockedUser" Relationship="Self.FK__BlockedUs__UserI__25869641" FromRole="Users" ToRole="BlockedUsers" />
-          <NavigationProperty Name="DaysForVolunteers" Relationship="Self.FK__DaysForVo__Volun__30F848ED" FromRole="Users" ToRole="DaysForVolunteer" />
           <NavigationProperty Name="HelpRequests" Relationship="Self.FK__HelpReque__Reque__37A5467C" FromRole="Users" ToRole="HelpRequests" />
           <NavigationProperty Name="RequestsForVolunteers" Relationship="Self.FK__RequestsF__Volun__3C69FB99" FromRole="Users" ToRole="RequestsForVolunteer" />
           <NavigationProperty Name="VolunteeringForUsers" Relationship="Self.FK__Volunteer__UserI__32E0915F" FromRole="Users" ToRole="VolunteeringForUsers" />
+          <NavigationProperty Name="DaysForVolunteers" Relationship="HandToHanddModel.FK__DaysForVo__Volun__30F848ED" FromRole="User" ToRole="DaysForVolunteer" />
         </EntityType>
         <EntityType Name="VolunteeringForUser">
           <Key>
@@ -360,30 +345,6 @@
             </Principal>
             <Dependent Role="BlockedUsers">
               <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DaysForVo__Types__300424B4">
-          <End Role="TypesOfTimes" Type="Self.TypesOfTime" Multiplicity="1" />
-          <End Role="DaysForVolunteer" Type="Self.DaysForVolunteer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TypesOfTimes">
-              <PropertyRef Name="TypesOfTimesId" />
-            </Principal>
-            <Dependent Role="DaysForVolunteer">
-              <PropertyRef Name="TypesOfTimesId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__DaysForVo__Volun__30F848ED">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="DaysForVolunteer" Type="Self.DaysForVolunteer" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="DaysForVolunteer">
-              <PropertyRef Name="VolunteerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -461,7 +422,6 @@
         </Association>
         <EntityContainer Name="HandToHanddEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="BlockedUsers" EntityType="Self.BlockedUser" />
-          <EntitySet Name="DaysForVolunteers" EntityType="Self.DaysForVolunteer" />
           <EntitySet Name="HelpRequests" EntityType="Self.HelpRequest" />
           <EntitySet Name="Managers" EntityType="Self.Manager" />
           <EntitySet Name="RequestsForVolunteers" EntityType="Self.RequestsForVolunteer" />
@@ -472,14 +432,6 @@
           <AssociationSet Name="FK__BlockedUs__UserI__25869641" Association="Self.FK__BlockedUs__UserI__25869641">
             <End Role="Users" EntitySet="Users" />
             <End Role="BlockedUsers" EntitySet="BlockedUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DaysForVo__Types__300424B4" Association="Self.FK__DaysForVo__Types__300424B4">
-            <End Role="TypesOfTimes" EntitySet="TypesOfTimes" />
-            <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__DaysForVo__Volun__30F848ED" Association="Self.FK__DaysForVo__Volun__30F848ED">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
           </AssociationSet>
           <AssociationSet Name="FK__HelpReque__Reque__37A5467C" Association="Self.FK__HelpReque__Reque__37A5467C">
             <End Role="Users" EntitySet="Users" />
@@ -505,7 +457,54 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="VolunteeringForUsers" EntitySet="VolunteeringForUsers" />
           </AssociationSet>
+          <EntitySet Name="DaysForVolunteers" EntityType="HandToHanddModel.DaysForVolunteer" />
+          <AssociationSet Name="FK__DaysForVo__Types__300424B4" Association="HandToHanddModel.FK__DaysForVo__Types__300424B4">
+            <End Role="TypesOfTime" EntitySet="TypesOfTimes" />
+            <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DaysForVo__Volun__30F848ED" Association="HandToHanddModel.FK__DaysForVo__Volun__30F848ED">
+            <End Role="User" EntitySet="Users" />
+            <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="DaysForVolunteer">
+          <Key>
+            <PropertyRef Name="DaysForVolunteerId" />
+          </Key>
+          <Property Name="DaysForVolunteerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DayofWeek" Type="Int64" Nullable="false" />
+          <Property Name="HourStart" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="HourEnd" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="RangeHours" Type="Int64" Nullable="false" />
+          <Property Name="TypesOfTimesId" Type="Int64" Nullable="false" />
+          <Property Name="VolunteerId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="TypesOfTime" Relationship="HandToHanddModel.FK__DaysForVo__Types__300424B4" FromRole="DaysForVolunteer" ToRole="TypesOfTime" />
+          <NavigationProperty Name="User" Relationship="HandToHanddModel.FK__DaysForVo__Volun__30F848ED" FromRole="DaysForVolunteer" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__DaysForVo__Types__300424B4">
+          <End Type="HandToHanddModel.TypesOfTime" Role="TypesOfTime" Multiplicity="1" />
+          <End Type="HandToHanddModel.DaysForVolunteer" Role="DaysForVolunteer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypesOfTime">
+              <PropertyRef Name="TypesOfTimesId" />
+            </Principal>
+            <Dependent Role="DaysForVolunteer">
+              <PropertyRef Name="TypesOfTimesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DaysForVo__Volun__30F848ED">
+          <End Type="HandToHanddModel.User" Role="User" Multiplicity="1" />
+          <End Type="HandToHanddModel.DaysForVolunteer" Role="DaysForVolunteer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="DaysForVolunteer">
+              <PropertyRef Name="VolunteerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -516,19 +515,6 @@
             <EntityTypeMapping TypeName="HandToHanddModel.BlockedUser">
               <MappingFragment StoreEntitySet="BlockedUsers">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DaysForVolunteers">
-            <EntityTypeMapping TypeName="HandToHanddModel.DaysForVolunteer">
-              <MappingFragment StoreEntitySet="DaysForVolunteer">
-                <ScalarProperty Name="DaysForVolunteerId" ColumnName="DaysForVolunteerId" />
-                <ScalarProperty Name="DayofWeek" ColumnName="DayofWeek" />
-                <ScalarProperty Name="HourStart" ColumnName="HourStart" />
-                <ScalarProperty Name="HourEnd" ColumnName="HourEnd" />
-                <ScalarProperty Name="RangeHours" ColumnName="RangeHours" />
-                <ScalarProperty Name="TypesOfTimesId" ColumnName="TypesOfTimesId" />
-                <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -602,6 +588,19 @@
                 <ScalarProperty Name="VolunteeringForUsersId" ColumnName="VolunteeringForUsersId" />
                 <ScalarProperty Name="TypeOfVolunteerId" ColumnName="TypeOfVolunteerId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaysForVolunteers">
+            <EntityTypeMapping TypeName="HandToHanddModel.DaysForVolunteer">
+              <MappingFragment StoreEntitySet="DaysForVolunteer">
+                <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
+                <ScalarProperty Name="TypesOfTimesId" ColumnName="TypesOfTimesId" />
+                <ScalarProperty Name="RangeHours" ColumnName="RangeHours" />
+                <ScalarProperty Name="HourEnd" ColumnName="HourEnd" />
+                <ScalarProperty Name="HourStart" ColumnName="HourStart" />
+                <ScalarProperty Name="DayofWeek" ColumnName="DayofWeek" />
+                <ScalarProperty Name="DaysForVolunteerId" ColumnName="DaysForVolunteerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
