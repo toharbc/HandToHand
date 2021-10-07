@@ -8,19 +8,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DaysForVolunteers">
-      <EntityTypeMapping TypeName="HandToHanddModel.DaysForVolunteer">
-        <MappingFragment StoreEntitySet="DaysForVolunteer">
-          <ScalarProperty Name="DaysForVolunteerId" ColumnName="DaysForVolunteerId" />
-          <ScalarProperty Name="DayofWeek" ColumnName="DayofWeek" />
-          <ScalarProperty Name="HourStart" ColumnName="HourStart" />
-          <ScalarProperty Name="HourEnd" ColumnName="HourEnd" />
-          <ScalarProperty Name="RangeHours" ColumnName="RangeHours" />
-          <ScalarProperty Name="TypesOfTimesId" ColumnName="TypesOfTimesId" />
-          <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="HelpRequests">
       <EntityTypeMapping TypeName="HandToHanddModel.HelpRequest">
         <MappingFragment StoreEntitySet="HelpRequests">
@@ -91,6 +78,19 @@
           <ScalarProperty Name="VolunteeringForUsersId" ColumnName="VolunteeringForUsersId" />
           <ScalarProperty Name="TypeOfVolunteerId" ColumnName="TypeOfVolunteerId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DaysForVolunteers">
+      <EntityTypeMapping TypeName="HandToHanddModel.DaysForVolunteer">
+        <MappingFragment StoreEntitySet="DaysForVolunteer">
+          <ScalarProperty Name="VolunteerId" ColumnName="VolunteerId" />
+          <ScalarProperty Name="TypesOfTimesId" ColumnName="TypesOfTimesId" />
+          <ScalarProperty Name="RangeHours" ColumnName="RangeHours" />
+          <ScalarProperty Name="HourEnd" ColumnName="HourEnd" />
+          <ScalarProperty Name="HourStart" ColumnName="HourStart" />
+          <ScalarProperty Name="DayofWeek" ColumnName="DayofWeek" />
+          <ScalarProperty Name="DaysForVolunteerId" ColumnName="DaysForVolunteerId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

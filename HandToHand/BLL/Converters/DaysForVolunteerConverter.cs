@@ -15,7 +15,7 @@ namespace BLL.Converters
             return new DaysForVolunteer
             {
                 DaysForVolunteerId = daysForVolunteer.DaysForVolunteerId,
-                DayOfWeek = daysForVolunteer.DayOfWeek,
+                DayofWeek = daysForVolunteer.DayOfWeek,
                 HourStart = daysForVolunteer.HourStart,
                 HourEnd = daysForVolunteer.HourEnd,
                 RangeHours = daysForVolunteer.RangeHours,
@@ -30,7 +30,7 @@ namespace BLL.Converters
             return new DaysForVolunteerDTO
             {
                 DaysForVolunteerId = daysForVolunteer.DaysForVolunteerId,
-                DayOfWeek = daysForVolunteer.DayOfWeek,
+                DayOfWeek = daysForVolunteer.DayofWeek,
                 HourStart = daysForVolunteer.HourStart,
                 HourEnd = daysForVolunteer.HourEnd,
                 RangeHours = daysForVolunteer.RangeHours,

@@ -17,10 +17,10 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.DaysForVolunteers = new HashSet<DaysForVolunteer>();
             this.HelpRequests = new HashSet<HelpRequest>();
             this.RequestsForVolunteers = new HashSet<RequestsForVolunteer>();
             this.VolunteeringForUsers = new HashSet<VolunteeringForUser>();
+            this.DaysForVolunteers = new HashSet<DaysForVolunteer>();
         }
     
         public long UserId { get; set; }
@@ -33,12 +33,12 @@ namespace DAL
     
         public virtual BlockedUser BlockedUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DaysForVolunteer> DaysForVolunteers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HelpRequest> HelpRequests { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RequestsForVolunteer> RequestsForVolunteers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VolunteeringForUser> VolunteeringForUsers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DaysForVolunteer> DaysForVolunteers { get; set; }
     }
 }

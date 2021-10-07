@@ -77,7 +77,7 @@
     <Compile Include="HelpRequest.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
-    <Compile Include="HelpRequests.cs" />
+    <Compile Include="HelpRequestsDAL.cs" />
     <Compile Include="Manager.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>

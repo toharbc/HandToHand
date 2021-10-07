@@ -16,7 +16,7 @@ namespace DAL
             }
         }
 
-        public void AddUser(User user)
+        public void AddUser(User user)   
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
@@ -25,5 +25,9 @@ namespace DAL
             }
         }
 
+        public void AddHelpRequests(HelpRequest helpRequest)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

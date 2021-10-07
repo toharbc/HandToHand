@@ -15,7 +15,7 @@ namespace DAL
     public partial class DaysForVolunteer
     {
         public long DaysForVolunteerId { get; set; }
-        public long DayOfWeek { get; set; }
+        public long DayofWeek { get; set; }
         public System.TimeSpan HourStart { get; set; }
         public System.TimeSpan HourEnd { get; set; }
         public long RangeHours { get; set; }
