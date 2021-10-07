@@ -21,6 +21,13 @@ namespace API.Controllers
         {
             return usersBLL.GetAllUsers();
         }
+
+        [HttpGet]
+        // GET: api/Users
+        public long Login(string mail, string password)
+        {
+            return usersBLL.Login(mail, password);
+        }
         // POST: api/Users
         [HttpPost]
         public void AddUser([FromBody]UserDTO user)

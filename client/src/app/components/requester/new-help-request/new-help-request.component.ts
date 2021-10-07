@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HelpRequests } from 'src/app/shared/models/HelpRequests.model';
+import { TypeOfVolunteering } from 'src/app/shared/models/TypeOfVolunteering.model';
 import { HelpRequestsService } from 'src/app/shared/services/help-requests.service';
+import { TypeOfVolunteeringService } from 'src/app/shared/services/type-of-volunteering.service';
 
 @Component({
   selector: 'app-new-help-request',
@@ -10,9 +12,14 @@ import { HelpRequestsService } from 'src/app/shared/services/help-requests.servi
 export class NewHelpRequestComponent implements OnInit {
 
   helpRequest : HelpRequests = new HelpRequests();
-  constructor(private helpRequestService:HelpRequestsService) { }
+  typesOfVolunteering:TypeOfVolunteering[]=[]
+  constructor(private helpRequestService:HelpRequestsService,
+    private typeOfVolenteeringService: TypeOfVolunteeringService) { }
 
   ngOnInit(): void {
+     this.typeOfVolenteeringService.getAllTypeOfVolunteerings().subscribe(
+      res=>this.typesOfVolunteering=res
+    )
   }
 
 

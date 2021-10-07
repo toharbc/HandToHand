@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Users } from 'src/app/shared/models/Users.model';
+import { RoutingService } from 'src/app/shared/services/routing.service';
 import { UsersService } from 'src/app/shared/services/users.service';
 
 @Component({
@@ -10,7 +12,10 @@ import { UsersService } from 'src/app/shared/services/users.service';
 export class RegisterComponent implements OnInit {
 
   user:Users=new Users();
-  constructor(private userService:UsersService) { }
+  constructor(private userService:UsersService,
+     private routingService:RoutingService,
+     private router:Router
+     ) { }
 
   ngOnInit(): void {
   }
@@ -19,7 +24,9 @@ export class RegisterComponent implements OnInit {
   {
     console.log(this.user)
     this.userService.addUser(this.user).subscribe(
-      res=>console.log(res),
+      res=> {
+        this.router.navigate([this.routingService.NextRoute])
+      },
       err=>console.error(err)
       );
     

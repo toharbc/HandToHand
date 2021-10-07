@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    class TypeOfVolunteeringDAL
+     public class TypeOfVolunteeringDAL
     {
+
+        public List<TypeOfVolunteering> GetAllTypeOfVolunteering()
+        {
+            using (HandToHanddEntities db = new HandToHanddEntities())
+            {
+                return db.TypeOfVolunteerings.ToList();
+            }
+        }
+
+        public static void AddTypeOfVolunteering(TypeOfVolunteering typeOfVolunteering)
+        {
+            using (HandToHanddEntities db = new HandToHanddEntities())
+            {
+                db.TypeOfVolunteerings.Add(typeOfVolunteering);
+                db.SaveChanges();
+            }
+
+        }
     }
 }

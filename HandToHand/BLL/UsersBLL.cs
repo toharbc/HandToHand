@@ -22,5 +22,13 @@ namespace BLL
         {
             usersDAL.AddUser(UserConverter.Map(user));
         }
+
+        public long Login(string mail, string password)
+        {
+            User user = usersDAL.GetAllUsers().FirstOrDefault(u => u.UserMail == mail && u.UserPassword == password);
+            if (user != null)
+                return user.UserId;
+            return -1;
+        }
     }
 }

@@ -2,7 +2,12 @@
 <form (ngSubmit)="newHelpRequest()">
     <div>
         <p>סוג בקשה</p>
-        <input type="helpRequestId" name="helpRequestId" [(ngModel)]="helpRequest.HelpRequestId">
+        <select name="requestType" [(ngModel)]="helpRequest.TypeOfVolunteerId">
+            <option *ngFor="let item of typesOfVolunteering" [value]="item.TypeOfVolunteeringId">{{item.TypeOfVolunteeringName}}</option>
+          
+        </select>
+
+        {{helpRequest.TypeOfVolunteerId}}
     </div>
     
     <!-- <div>
@@ -34,3 +39,8 @@
         <input type="submit" value="Find a volunteer">
     
     </form>
+
+
+    <div *ngFor="let item of typesOfVolunteering">
+        <p>{{item.TypeOfVolunteeringName}}</p>
+    </div>

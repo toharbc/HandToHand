@@ -5,19 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using BLL.Converters;
 
 namespace BLL
 {
     public class TypeOfVolunteeringBLL
+
     {
+        TypeOfVolunteeringDAL typeOfVolunteeringDAL = new TypeOfVolunteeringDAL();
         public List<TypeOfVolunteeringDTO> GetAllTypeOfVolunteerings()
         {
-            throw new NotImplementedException();
+            return TypeOfVolunteeringConverter.Map(typeOfVolunteeringDAL.GetAllTypeOfVolunteering());
         }
 
         public void AddTypeOfVolunteering(TypeOfVolunteeringDTO typeOfVolunteering)
         {
-            throw new NotImplementedException();
+            TypeOfVolunteeringDAL.AddTypeOfVolunteering(TypeOfVolunteeringConverter.Map(typeOfVolunteering));
         }
     }
 }

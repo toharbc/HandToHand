@@ -13,6 +13,11 @@ export class UsersService {
   {
     return this.http.post(environment.serverUrl+'users',user)
   }
+
+  login(mail:string,password:string)
+  {
+    return this.http.get(`${environment.serverUrl}users/Login?mail=${mail}&password=${password}`)
+  }
  
 
 }

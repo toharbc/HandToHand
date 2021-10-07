@@ -22,5 +22,15 @@ namespace BLL
         {
             helpRequestsDAL.AddHelpRequest(HelpRequestsConverter.Map(helpRequest));
         }
+
+        public List<HelpRequestsDTO> GetHelpRequestsByRequesterId(long id)
+        {
+            return HelpRequestsConverter.Map(helpRequestsDAL.GetHelpRequestsByRequesterId(id));
+        }
+
+        public List<HelpRequestsDTO> GetHelpRequestsByVolenteerId(long id)
+        {
+            return HelpRequestsConverter.Map(helpRequestsDAL.GetHelpRequestsByVolenteerId(id));
+        }
     }
 }

@@ -16,6 +16,26 @@ namespace DAL
             }
 
         }
+
+        public List<HelpRequest> GetHelpRequestsByRequesterId(long id)
+        {
+            using (HandToHanddEntities db = new HandToHanddEntities())
+            {
+                return db.HelpRequests.Where(h=>h.RequesterId==id).ToList();
+            }
+
+        }
+
+        public List<HelpRequest> GetHelpRequestsByVolenteerId(long id)
+        {
+            using (HandToHanddEntities db = new HandToHanddEntities())
+            {
+               return db.RequestsForVolunteers.Where(r => r.VolunteerId == id).
+                    Select(r=>r.HelpRequest).ToList();
+            }
+
+        }
+
         public void AddHelpRequest(HelpRequest helpRequest)
         {
 

@@ -20,6 +20,17 @@ namespace API.Controllers
         {
             return helpRequestsBLL.GetAllHelpRequests();
         }
+        [HttpGet]
+        public List<HelpRequestsDTO> GetHelpRequestsByRequesterId(long id)
+        {
+            return helpRequestsBLL.GetHelpRequestsByRequesterId(id);
+        }
+
+        [HttpGet]
+        public List<HelpRequestsDTO> GetHelpRequestsByVolenteerId(long id)
+        {
+            return helpRequestsBLL.GetHelpRequestsByVolenteerId(id);
+        }
 
         [HttpPost]
         // POST: api/HelpRequests
