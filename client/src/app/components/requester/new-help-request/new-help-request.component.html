@@ -2,7 +2,7 @@
 <form (ngSubmit)="newHelpRequest()">
     <div>
         <p>סוג בקשה</p>
-        <select name="requestType" [(ngModel)]="helpRequest.TypeOfVolunteerId">
+        <select  name="requestType" [(ngModel)]="helpRequest.TypeOfVolunteerId">
             <option *ngFor="let item of typesOfVolunteering" [value]="item.TypeOfVolunteeringId">{{item.TypeOfVolunteeringName}}</option>
           
         </select>

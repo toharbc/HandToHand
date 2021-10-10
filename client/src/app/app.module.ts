@@ -12,6 +12,7 @@ import { MyRequestComponent } from './components/volunteer/my-request/my-request
 import { RequesterRequestsComponent } from './components/requester/requester-requests/requester-requests.component';
 import { LoginComponent } from './components/shared/login/login.component';
 import { VolunteerDetailesComponent } from './components/volunteer/volunteer-detailes/volunteer-detailes.component';
+import { GuestComponent } from './components/requester/guest/guest.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { VolunteerDetailesComponent } from './components/volunteer/volunteer-det
     MyRequestComponent,
     RequesterRequestsComponent,
     LoginComponent,
-    VolunteerDetailesComponent
+    VolunteerDetailesComponent,
+    GuestComponent
   ],
   imports: [
     BrowserModule,
