@@ -5,6 +5,13 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HandToHanddModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Areas">
+          <Key>
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AreaName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="BlockedUsers">
           <Key>
             <PropertyRef Name="UserId" />
@@ -80,6 +87,7 @@
           <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UserMail" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UserAdress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AreaId" Type="int" />
         </EntityType>
         <EntityType Name="VolunteeringForUsers">
           <Key>
@@ -173,6 +181,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__Users__AreaId__49C3F6B7">
+          <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Areas">
+              <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Volunteer__TypeO__31EC6D26">
           <End Role="TypeOfVolunteering" Type="Self.TypeOfVolunteering" Multiplicity="1" />
           <End Role="VolunteeringForUsers" Type="Self.VolunteeringForUsers" Multiplicity="*" />
@@ -198,6 +218,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HandToHanddModelStoreContainer">
+          <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BlockedUsers" EntityType="Self.BlockedUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DaysForVolunteer" EntityType="Self.DaysForVolunteer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HelpRequests" EntityType="Self.HelpRequests" Schema="dbo" store:Type="Tables" />
@@ -234,6 +255,10 @@
           <AssociationSet Name="FK__RequestsF__Volun__3C69FB99" Association="Self.FK__RequestsF__Volun__3C69FB99">
             <End Role="Users" EntitySet="Users" />
             <End Role="RequestsForVolunteer" EntitySet="RequestsForVolunteer" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Users__AreaId__49C3F6B7" Association="Self.FK__Users__AreaId__49C3F6B7">
+            <End Role="Areas" EntitySet="Areas" />
+            <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK__Volunteer__TypeO__31EC6D26" Association="Self.FK__Volunteer__TypeO__31EC6D26">
             <End Role="TypeOfVolunteering" EntitySet="TypeOfVolunteering" />
@@ -325,6 +350,8 @@
           <NavigationProperty Name="RequestsForVolunteers" Relationship="Self.FK__RequestsF__Volun__3C69FB99" FromRole="Users" ToRole="RequestsForVolunteer" />
           <NavigationProperty Name="VolunteeringForUsers" Relationship="Self.FK__Volunteer__UserI__32E0915F" FromRole="Users" ToRole="VolunteeringForUsers" />
           <NavigationProperty Name="DaysForVolunteers" Relationship="HandToHanddModel.FK__DaysForVo__Volun__30F848ED" FromRole="User" ToRole="DaysForVolunteer" />
+          <Property Name="AreaId" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="HandToHanddModel.FK__Users__AreaId__49C3F6B7" FromRole="User" ToRole="Area" />
         </EntityType>
         <EntityType Name="VolunteeringForUser">
           <Key>
@@ -466,6 +493,11 @@
             <End Role="User" EntitySet="Users" />
             <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
           </AssociationSet>
+          <EntitySet Name="Areas" EntityType="HandToHanddModel.Area" />
+          <AssociationSet Name="FK__Users__AreaId__49C3F6B7" Association="HandToHanddModel.FK__Users__AreaId__49C3F6B7">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="DaysForVolunteer">
           <Key>
@@ -502,6 +534,26 @@
             </Principal>
             <Dependent Role="DaysForVolunteer">
               <PropertyRef Name="VolunteerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="AreaId" />
+          </Key>
+          <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AreaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="HandToHanddModel.FK__Users__AreaId__49C3F6B7" FromRole="Area" ToRole="User" />
+        </EntityType>
+        <Association Name="FK__Users__AreaId__49C3F6B7">
+          <End Type="HandToHanddModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="HandToHanddModel.User" Role="User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="AreaId" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="AreaId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -572,6 +624,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="HandToHanddModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
                 <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
@@ -601,6 +654,14 @@
                 <ScalarProperty Name="HourStart" ColumnName="HourStart" />
                 <ScalarProperty Name="DayofWeek" ColumnName="DayofWeek" />
                 <ScalarProperty Name="DaysForVolunteerId" ColumnName="DaysForVolunteerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="HandToHanddModel.Area">
+              <MappingFragment StoreEntitySet="Areas">
+                <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -77,6 +77,8 @@
     <NavigationProperty Name="RequestsForVolunteers" Relationship="Self.FK__RequestsF__Volun__3C69FB99" FromRole="Users" ToRole="RequestsForVolunteer" />
     <NavigationProperty Name="VolunteeringForUsers" Relationship="Self.FK__Volunteer__UserI__32E0915F" FromRole="Users" ToRole="VolunteeringForUsers" />
     <NavigationProperty Name="DaysForVolunteers" Relationship="HandToHanddModel.FK__DaysForVo__Volun__30F848ED" FromRole="User" ToRole="DaysForVolunteer" />
+    <Property Name="AreaId" Type="Int32" />
+    <NavigationProperty Name="Area" Relationship="HandToHanddModel.FK__Users__AreaId__49C3F6B7" FromRole="User" ToRole="Area" />
   </EntityType>
   <EntityType Name="VolunteeringForUser">
     <Key>
@@ -218,6 +220,11 @@
       <End Role="User" EntitySet="Users" />
       <End Role="DaysForVolunteer" EntitySet="DaysForVolunteers" />
     </AssociationSet>
+    <EntitySet Name="Areas" EntityType="HandToHanddModel.Area" />
+    <AssociationSet Name="FK__Users__AreaId__49C3F6B7" Association="HandToHanddModel.FK__Users__AreaId__49C3F6B7">
+      <End Role="Area" EntitySet="Areas" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="DaysForVolunteer">
     <Key>
@@ -254,6 +261,26 @@
       </Principal>
       <Dependent Role="DaysForVolunteer">
         <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Area">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AreaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="HandToHanddModel.FK__Users__AreaId__49C3F6B7" FromRole="Area" ToRole="User" />
+  </EntityType>
+  <Association Name="FK__Users__AreaId__49C3F6B7">
+    <End Type="HandToHanddModel.Area" Role="Area" Multiplicity="0..1" />
+    <End Type="HandToHanddModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Area">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="AreaId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

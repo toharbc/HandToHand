@@ -62,6 +62,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="HandToHanddModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="UserFirstName" ColumnName="UserFirstName" />
           <ScalarProperty Name="UserLastName" ColumnName="UserLastName" />
@@ -91,6 +92,14 @@
           <ScalarProperty Name="HourStart" ColumnName="HourStart" />
           <ScalarProperty Name="DayofWeek" ColumnName="DayofWeek" />
           <ScalarProperty Name="DaysForVolunteerId" ColumnName="DaysForVolunteerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Areas">
+      <EntityTypeMapping TypeName="HandToHanddModel.Area">
+        <MappingFragment StoreEntitySet="Areas">
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

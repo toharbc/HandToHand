@@ -8,6 +8,8 @@ export class Users {
         public UserPassword?: string,
         public UserMail?: string,
         public UserAdress?: string,
+        public  AreaId ?:number,
+        public  AreaName ?:string
 
 
     ) {

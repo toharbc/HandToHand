@@ -46,6 +46,7 @@
     <Compile Include="DaysForVolunteerDTO.cs" />
     <Compile Include="HelpRequestsDTO.cs" />
     <Compile Include="ManagerDTO.cs" />
+    <Compile Include="ProfileDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestsForVolunteerDTO.cs" />
     <Compile Include="TypeOfVolunteeringDTO.cs" />

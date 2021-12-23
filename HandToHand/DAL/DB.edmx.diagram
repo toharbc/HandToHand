@@ -23,6 +23,8 @@
         <EntityTypeShape EntityType="HandToHanddModel.DaysForVolunteer" Width="1.5" PointX="6" PointY="4" />
         <AssociationConnector Association="HandToHanddModel.FK__DaysForVo__Types__300424B4" />
         <AssociationConnector Association="HandToHanddModel.FK__DaysForVo__Volun__30F848ED" />
+        <EntityTypeShape EntityType="HandToHanddModel.Area" Width="1.5" PointX="0.75" PointY="12" />
+        <AssociationConnector Association="HandToHanddModel.FK__Users__AreaId__49C3F6B7" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

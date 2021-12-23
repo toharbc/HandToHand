@@ -15,13 +15,14 @@ namespace BLL.Converters
         {
             return new User
             {
-                UserAdress=user.UserAdress,
-                UserFirstName=user.UserFirstName,
-                UserId=user.UserId,
-                UserLastName=user.UserLastName,
-                UserPhone=user.UserPhone,
-                UserMail=user.UserMail,
-                UserPassword=user.UserPassword,
+                UserAdress = user.UserAdress,
+                UserFirstName = user.UserFirstName,
+                UserId = user.UserId,
+                UserLastName = user.UserLastName,
+                UserPhone = user.UserPhone,
+                UserMail = user.UserMail,
+                UserPassword = user.UserPassword,
+                AreaId = user.AreaId
                 
             };
         }
@@ -30,7 +31,7 @@ namespace BLL.Converters
 
         public static UserDTO Map(User user)
         {
-            return new UserDTO
+            UserDTO u= new UserDTO
             {
                 UserAdress = user.UserAdress,
                 UserFirstName = user.UserFirstName,
@@ -38,9 +39,18 @@ namespace BLL.Converters
                 UserLastName = user.UserLastName,
                 UserPhone = user.UserPhone,
                 UserMail = user.UserMail,
-                UserPassword = user.UserPassword,
-                
+                UserPassword = user.UserPassword
+               
+
+
             };
+
+            if (user.AreaId != null)
+            {
+                u.AreaId = user.AreaId.Value;
+                u.AreaName = user.Area.AreaName;
+            }
+            return u;
         }
 
         public static List<UserDTO> Map(List<User> users)

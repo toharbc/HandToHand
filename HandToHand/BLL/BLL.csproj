@@ -53,6 +53,7 @@
     <Compile Include="Converters\UserConverter.cs" />
     <Compile Include="Converters\VolunteeringForUsersConverter.cs" />
     <Compile Include="DaysForVolunteerBLL.cs" />
+    <Compile Include="DistanceServiceBLL.cs" />
     <Compile Include="HelpRequestsBLL.cs" />
     <Compile Include="ManagerBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

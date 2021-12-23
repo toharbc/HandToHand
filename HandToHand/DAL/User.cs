@@ -30,6 +30,7 @@ namespace DAL
         public string UserPassword { get; set; }
         public string UserMail { get; set; }
         public string UserAdress { get; set; }
+        public Nullable<int> AreaId { get; set; }
     
         public virtual BlockedUser BlockedUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -40,5 +41,6 @@ namespace DAL
         public virtual ICollection<VolunteeringForUser> VolunteeringForUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DaysForVolunteer> DaysForVolunteers { get; set; }
+        public virtual Area Area { get; set; }
     }
 }

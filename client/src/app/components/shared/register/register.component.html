@@ -15,6 +15,7 @@
     <div>
         <p>טלפון</p>
     <input type="tel" name="phone" [(ngModel)]="user.UserPhone">
+
 </div>
 
     <div>
@@ -32,8 +33,21 @@
         <p>כתובת</p>
     <input type="text" name="address" [(ngModel)]="user.UserAdress">
     </div>
+   <!-- <div>
+        <p>אזור</p>
+
+    
+        <select  name="selectedArea" [(ngModel)]="Area.AreaId">
+            <option *ngFor="let item of Areas" [value]="item.AreaId">{{item.AreaName}}</option>
+          
+        </select>
+    </div>-->
+
     <input type="submit" value="save">
 
 </form>
 
 <button routerLink="/login">כבר יש לך חשבון? היכנס</button>
+<button (click)="login()">כבר יש לך חשבון? היכנס</button>
+
+

@@ -10,10 +10,17 @@ namespace BLL
 {
     public class VolunteeringForUsersBLL
     {
+        VolunteeringForUsersDAL volunteeringForUsersDAL = new VolunteeringForUsersDAL();
+
         public List<VolunteeringForUsersDTO> GetAllVolunteeringForUsers()
         {
-            throw new NotImplementedException();
+           return Converters.VolunteeringForUsersConverter.Map(volunteeringForUsersDAL.GetAllVolunteeringForUsers());
         }
+        //public List<Area> GetAllAreas()
+        //{
+        //    return Converters.VolunteeringForUsersConverter.Map(volunteeringForUsersDAL.GetAllAreas());
+        //}
+
 
         public void AddVolunteeringForUsers(VolunteeringForUsersDTO volunteeringForUsers)
         {

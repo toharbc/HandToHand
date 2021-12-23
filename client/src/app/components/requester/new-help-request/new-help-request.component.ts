@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HelpRequests } from 'src/app/shared/models/HelpRequests.model';
-import { TypeOfVolunteering } from 'src/app/shared/models/TypeOfVolunteering.model';
-import { HelpRequestsService } from 'src/app/shared/services/help-requests.service';
-import { TypeOfVolunteeringService } from 'src/app/shared/services/type-of-volunteering.service';
+import { Router } from '@angular/router';
+import { HelpRequests } from '../../../shared/models/HelpRequests.model';
+import { TypeOfVolunteering } from '../../../shared/models/TypeOfVolunteering.model';
+import { HelpRequestsService } from '../../../shared/services/help-requests.service';
+import { TypeOfVolunteeringService } from '../../../shared/services/type-of-volunteering.service';
 
 @Component({
   selector: 'app-new-help-request',
@@ -14,7 +15,8 @@ export class NewHelpRequestComponent implements OnInit {
   helpRequest : HelpRequests = new HelpRequests();
   typesOfVolunteering:TypeOfVolunteering[]=[]
   constructor(private helpRequestService:HelpRequestsService,
-    private typeOfVolenteeringService: TypeOfVolunteeringService) { }
+    private typeOfVolenteeringService: TypeOfVolunteeringService,
+    private router:Router) { }
 
   ngOnInit(): void {
      this.typeOfVolenteeringService.getAllTypeOfVolunteerings().subscribe(
@@ -33,8 +35,14 @@ export class NewHelpRequestComponent implements OnInit {
       );
     
   }
-  
+  requesterRequests(){
+    this.router.navigate([ 'app-requester-requests'])
+  }
+  findVolunteer(){
+    this.router.navigate([ 'app-find'])
+  }
 
+ 
 }
 
  

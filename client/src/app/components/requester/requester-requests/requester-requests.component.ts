@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HelpRequests } from 'src/app/shared/models/HelpRequests.model';
-import { HelpRequestsService } from 'src/app/shared/services/help-requests.service';
+import { HelpRequests } from '../../../shared/models/HelpRequests.model';
+import { HelpRequestsService } from '../../../shared/services/help-requests.service';
 
 @Component({
   selector: 'app-requester-requests',

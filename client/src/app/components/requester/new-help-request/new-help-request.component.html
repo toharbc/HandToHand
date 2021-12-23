@@ -36,7 +36,7 @@
    
     
        
-        <input type="submit" value="Find a volunteer">
+<button  (click)="findVolunteer()">מצא מתנדב</button>
     
     </form>
 
@@ -44,3 +44,5 @@
     <div *ngFor="let item of typesOfVolunteering">
         <p>{{item.TypeOfVolunteeringName}}</p>
     </div>
+    <button  (click)="requesterRequests()">הבקשות שלי</button>
+    

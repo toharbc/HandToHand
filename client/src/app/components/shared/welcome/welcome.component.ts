@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RoutingService } from 'src/app/shared/services/routing.service';
+import { RoutingService } from '../../../shared/services/routing.service';
 
 @Component({
   selector: 'app-welcome',

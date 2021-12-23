@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HelpRequests } from 'src/app/shared/models/HelpRequests.model';
-import { HelpRequestsService } from 'src/app/shared/services/help-requests.service';
+import { HelpRequests } from '../../../shared/models/HelpRequests.model';
+
+
 import { RequestsForVolunteer } from '../../../shared/models/RequestsForVolunteer.model';
+import { HelpRequestsService } from '../../../shared/services/help-requests.service';
 import { RequestsForVolunteerService } from '../../../shared/services/requests-for-volunteer.service';
 
 @Component({
@@ -20,7 +22,8 @@ export class MyRequestComponent implements OnInit {
       res=>this.helpRequests=res
     )
   }
-    
+
+   
  
 
 }

@@ -15,5 +15,7 @@ namespace DTO
         public string UserPassword { get; set; }
         public string UserMail { get; set; }
         public string UserAdress { get; set; }
+        public int AreaId { get; set; }
+        public string AreaName { get; set; }
     }
 }

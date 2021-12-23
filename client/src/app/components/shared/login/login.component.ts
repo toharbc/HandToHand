@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { RoutingService } from 'src/app/shared/services/routing.service';
-import { UsersService } from 'src/app/shared/services/users.service';
+import { RoutingService } from '../../../shared/services/routing.service';
+import { UsersService } from '../../../shared/services/users.service';
+
 
 @Component({
   selector: 'app-login',
@@ -29,5 +30,10 @@ export class LoginComponent implements OnInit {
       },
     )
   }
-
+  newHelpRequest(){
+    this.router.navigate(['app-new-help-request'])
+  } 
+  volunteerDetailes(){
+    this.router.navigate(['app-volunteer-detailes'])
+  }
 }

@@ -15,8 +15,12 @@ namespace API.Controllers
     {
 
         TypeOfVolunteeringBLL typeOfVolunteeringBLL = new TypeOfVolunteeringBLL();
-           [HttpGet]
+        [HttpGet]
         // GET: api/TypeOfVolunteering
+
+        [AcceptVerbs("GET", "POST")]
+
+        [Route("getAllTypeOfVolunteerings")]
         public List<TypeOfVolunteeringDTO> GetAllTypeOfVolunteerings()
         {
             return typeOfVolunteeringBLL.GetAllTypeOfVolunteerings();
@@ -31,6 +35,10 @@ namespace API.Controllers
             typeOfVolunteeringBLL.AddTypeOfVolunteering(typeOfVolunteering);
         }
 
-        
+
+
+
+
     }
 }
+

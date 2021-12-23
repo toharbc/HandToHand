@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Users } from 'src/app/shared/models/Users.model';
-import { RoutingService } from 'src/app/shared/services/routing.service';
-import { UsersService } from 'src/app/shared/services/users.service';
+
+import { RoutingService } from '../../../shared/services/routing.service';
+import { UsersService } from '../../../shared/services/users.service';
+import { Users } from '../../../shared/models/Users.model';
 
 @Component({
   selector: 'app-register',
@@ -30,6 +31,9 @@ export class RegisterComponent implements OnInit {
       err=>console.error(err)
       );
     
+  }
+  login(){
+    this.router.navigate([  'app-login'])
   }
 
 }

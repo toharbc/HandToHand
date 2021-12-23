@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient}from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { VolunteeringForUsers } from '../models/VolunteeringForUsers.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,4 +10,14 @@ import {HttpClient}from '@angular/common/http';
 export class VolunteeringForUsersService {
 
   constructor(public http:HttpClient) { }
+
+  getAllVolunteeringForUsers():Observable<VolunteeringForUsers[]>
+  {
+    return this.http.get<VolunteeringForUsers[]>(environment.serverUrl+'VolunteeringForUsers');
+  }
+ // getAllAreas():Observable<Areas[]>
+  //{
+    //return this.http.get<Areas[]>(environment.serverUrl+'VolunteeringForUsers');
+  //}
+  
 }

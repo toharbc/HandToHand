@@ -34,5 +34,6 @@ namespace DAL
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<VolunteeringForUser> VolunteeringForUsers { get; set; }
         public virtual DbSet<DaysForVolunteer> DaysForVolunteers { get; set; }
+        public virtual DbSet<Area> Areas { get; set; }
     }
 }

@@ -30,6 +30,11 @@ namespace BLL.Converters
                 VolunteeringForUsersId = volunteeringForUser.VolunteeringForUsersId,
                 TypeOfVolunteerId = volunteeringForUser.TypeOfVolunteerId,
                 UserId = volunteeringForUser.UserId,
+                TypeOfVolunteerName= volunteeringForUser.TypeOfVolunteering.TypeOfVolunteeringName,
+                UserLocation= volunteeringForUser.User.UserAdress,
+                AreaId=volunteeringForUser.User.AreaId.Value,
+                AreaName=volunteeringForUser.User.Area.AreaName,
+                UserName= volunteeringForUser.User.UserFirstName+" "+ volunteeringForUser.User.UserLastName
 
             };
         }
