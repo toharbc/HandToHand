@@ -2,10 +2,13 @@
 <form (ngSubmit)="newHelpRequest()">
     <div>
         <p>סוג בקשה</p>
-        <select  name="requestType" [(ngModel)]="helpRequest.TypeOfVolunteerId">
-            <option *ngFor="let item of typesOfVolunteering" [value]="item.TypeOfVolunteeringId">{{item.TypeOfVolunteeringName}}</option>
+        <mat-select
+          name="requestType" [(ngModel)]="helpRequest.TypeOfVolunteerId">
+     <option *ngFor="let item of typesOfVolunteering" [value]="item.TypeOfVolunteeringId">
+         {{item.TypeOfVolunteeringName}}
+        </option>
           
-        </select>
+        </mat-select>
 
         {{helpRequest.TypeOfVolunteerId}}
     </div>
@@ -29,14 +32,14 @@
     </div>
 
     <div>
-        <p>עד שעה</p>
+        <mat-label>עד שעה</mat-label>
     <input type="time" name="end-time" [(ngModel)]="helpRequest.EndHour">
 </div>
     
    
     
        
-<button  (click)="findVolunteer()">מצא מתנדב</button>
+<button mat-button class="big-button" (click)="findVolunteer()">מצא מתנדב</button>
     
     </form>
 
@@ -44,5 +47,5 @@
     <div *ngFor="let item of typesOfVolunteering">
         <p>{{item.TypeOfVolunteeringName}}</p>
     </div>
-    <button  (click)="requesterRequests()">הבקשות שלי</button>
-    
+    <button mat-button class="big-button" (click)="requesterRequests()">הבקשות שלי</button>
+<find *ngIf="isShowFind" [helpRequest]="helpRequest"></find>

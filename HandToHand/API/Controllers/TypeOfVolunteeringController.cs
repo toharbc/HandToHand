@@ -29,10 +29,10 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/TypeOfVolunteering
-        public void AddTypeOfVolunteering([FromBody] TypeOfVolunteeringDTO typeOfVolunteering)
+        public bool AddTypeOfVolunteering([FromBody] TypeOfVolunteeringDTO typeOfVolunteering)
         {
 
-            typeOfVolunteeringBLL.AddTypeOfVolunteering(typeOfVolunteering);
+           return typeOfVolunteeringBLL.AddTypeOfVolunteering(typeOfVolunteering);
         }
 
 

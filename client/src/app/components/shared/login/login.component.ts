@@ -5,8 +5,8 @@ import { UsersService } from '../../../shared/services/users.service';
 
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
+  selector: 'login',
+  templateUrl:'./login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
       },
     )
   }
-  newHelpRequest(){
-    this.router.navigate(['app-new-help-request'])
+  needhelpSpace(){
+    this.router.navigate(['/needhelp-space'])
   } 
-  volunteerDetailes(){
-    this.router.navigate(['app-volunteer-detailes'])
+  mitnadevSpace(){
+    this.router.navigate(['/mitnadev-space'])
   }
 }

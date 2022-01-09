@@ -17,12 +17,20 @@ namespace DAL
             }
         }
 
-        public static void AddTypeOfVolunteering(TypeOfVolunteering typeOfVolunteering)
+        public static bool AddTypeOfVolunteering(TypeOfVolunteering typeOfVolunteering)
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.TypeOfVolunteerings.Add(typeOfVolunteering);
-                db.SaveChanges();
+                try
+                {
+                    db.TypeOfVolunteerings.Add(typeOfVolunteering);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
 
         }

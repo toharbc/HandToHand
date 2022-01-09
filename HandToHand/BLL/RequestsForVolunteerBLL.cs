@@ -17,9 +17,9 @@ namespace BLL
             return   RequestsForVolunteerConverter.Map(requestsForVolunteerDAL.GetAllRequestsForVolunteers());
         }
 
-        public void AddRequestsForVolunteer(RequestsForVolunteerDTO requestsForVolunteer)
+        public bool AddRequestsForVolunteer(RequestsForVolunteerDTO requestsForVolunteer)
         {
-            RequestsForVolunteerDAL.AddRequestsForVolunteer(RequestsForVolunteerConverter.Map(requestsForVolunteer));
+           return RequestsForVolunteerDAL.AddRequestsForVolunteer(RequestsForVolunteerConverter.Map(requestsForVolunteer));
         }
     }
 }

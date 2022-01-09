@@ -33,9 +33,9 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/VolunteeringForUsers
-        public void AddVolunteeringForUsers([FromBody] VolunteeringForUsersDTO volunteeringForUsers)
+        public bool AddVolunteeringForUsers([FromBody] VolunteeringForUsersDTO volunteeringForUsers)
         {
-            volunteeringForUsersBLL.AddVolunteeringForUsers(volunteeringForUsers);
+           return volunteeringForUsersBLL.AddVolunteeringForUsers(volunteeringForUsers);
         }
 
        

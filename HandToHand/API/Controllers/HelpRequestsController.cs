@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
+using DAL;
 using DTO;
 
 namespace API.Controllers
@@ -31,12 +32,17 @@ namespace API.Controllers
         {
             return helpRequestsBLL.GetHelpRequestsByVolenteerId(id);
         }
+        [HttpGet]
+        public List<VolunteeringForUsersDTO> GetVolunteersForHelpRequest(HelpRequest helpRequest)
+        {
 
+            return helpRequestsBLL.GetVolunteersForHelpRequest(helpRequest);
+        }
         [HttpPost]
         // POST: api/HelpRequests
-        public void AddHelpRequests([FromBody] HelpRequestsDTO helpRequest)
+        public bool AddHelpRequests([FromBody] HelpRequestsDTO helpRequest)
         {
-            helpRequestsBLL.AddHelpRequest(helpRequest);
+           return helpRequestsBLL.AddHelpRequest(helpRequest);
         }
 
        

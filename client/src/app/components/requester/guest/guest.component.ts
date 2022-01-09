@@ -23,7 +23,6 @@ export class GuestComponent implements OnInit {
 
   constructor(private volunteeringForUsersService:VolunteeringForUsersService,
     private typeOfVoluneeringService:TypeOfVolunteeringService,
-    
     private router:Router) { }
 
   ngOnInit(): void {
@@ -80,7 +79,7 @@ export class GuestComponent implements OnInit {
 
     showProfile(id:number)
     {
-       this.router.navigate(['profile',id])
+       this.router.navigate(['/profile',id])
     }
 
 

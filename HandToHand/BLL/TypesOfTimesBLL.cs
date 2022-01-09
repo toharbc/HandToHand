@@ -15,9 +15,9 @@ namespace BLL
             throw new NotImplementedException();
         }
 
-        public void AddTypesOfTimes(TypesOfTimesDTO typesOfTimes)
+        public bool AddTypesOfTimes(TypesOfTimesDTO typesOfTimes)
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }

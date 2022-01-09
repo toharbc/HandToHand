@@ -16,12 +16,22 @@ namespace DAL
             }
         }
 
-        public void AddUser(User user)   
+        public bool AddUser(User user)   
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.Users.Add(user);
-                db.SaveChanges();
+                user.AreaId = null;
+                try
+                {
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+
+                    return false;
+                }
             }
         }
 

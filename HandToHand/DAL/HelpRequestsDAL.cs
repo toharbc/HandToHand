@@ -30,19 +30,28 @@ namespace DAL
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-               return db.RequestsForVolunteers.Where(r => r.VolunteerId == id).
+               return db.RequestsForVolunteers.Where(r => r != null && r.VolunteerId == id).
                     Select(r=>r.HelpRequest).ToList();
             }
 
         }
 
-        public void AddHelpRequest(HelpRequest helpRequest)
+        public bool AddHelpRequest(HelpRequest helpRequest)
         {
 
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.HelpRequests.Add(helpRequest);
-                db.SaveChanges();
+                try
+                {
+                    db.HelpRequests.Add(helpRequest);
+                    db.SaveChanges();
+                    return true;
+
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
     }

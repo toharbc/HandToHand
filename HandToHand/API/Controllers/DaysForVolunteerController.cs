@@ -26,10 +26,10 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/DaysForVolunteer
-        public void AddDaysForVolunteer([FromBody] DaysForVolunteerDTO daysForVolunteer)
+        public bool AddDaysForVolunteer([FromBody] DaysForVolunteerDTO daysForVolunteer)
         {
 
-            daysForVolunteerBLL.AddDaysForVolunteer(daysForVolunteer);
+            return daysForVolunteerBLL.AddDaysForVolunteer(daysForVolunteer);
         }
 
         

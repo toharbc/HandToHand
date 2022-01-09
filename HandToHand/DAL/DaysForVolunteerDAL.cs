@@ -16,12 +16,20 @@ namespace DAL
             }
         }
 
-        public  void AddDaysForVolunteer(DaysForVolunteer daysForVolunteer)
+        public  bool AddDaysForVolunteer(DaysForVolunteer daysForVolunteer)
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.DaysForVolunteers.Add(daysForVolunteer);
-                db.SaveChanges();
+                try
+                {
+                    db.DaysForVolunteers.Add(daysForVolunteer);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
     }

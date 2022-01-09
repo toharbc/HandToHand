@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HelpRequests } from '../../../shared/models/HelpRequests.model';
 
 
@@ -7,14 +8,15 @@ import { HelpRequestsService } from '../../../shared/services/help-requests.serv
 import { RequestsForVolunteerService } from '../../../shared/services/requests-for-volunteer.service';
 
 @Component({
-  selector: 'app-my-request',
+  selector: 'my-request',
   templateUrl: './my-request.component.html',
   styleUrls: ['./my-request.component.css']
 })
 export class MyRequestComponent implements OnInit {
 
   helpRequests:HelpRequests[]=[];
-  constructor(private helpRequestService:HelpRequestsService) { }
+  constructor(private helpRequestService:HelpRequestsService,
+    public route:Router) { }
 
   ngOnInit(): void {
     let userId:number=Number(sessionStorage.getItem('user'))

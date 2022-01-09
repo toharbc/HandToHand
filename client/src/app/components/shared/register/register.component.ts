@@ -6,7 +6,7 @@ import { UsersService } from '../../../shared/services/users.service';
 import { Users } from '../../../shared/models/Users.model';
 
 @Component({
-  selector: 'app-register',
+  selector: 'register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
@@ -26,14 +26,21 @@ export class RegisterComponent implements OnInit {
     console.log(this.user)
     this.userService.addUser(this.user).subscribe(
       res=> {
-        this.router.navigate([this.routingService.NextRoute])
+        alert(res?'נרשמת למערכת בהצלחה'
+        :'קרתה תקלה בהרשמה');
+        this.router.navigate([this.routingService.NextRoute]);
       },
       err=>console.error(err)
       );
     
   }
   login(){
-    this.router.navigate([  'app-login'])
+    this.router.navigate(['/login'])
+  }
+  //לקחת את הפונקציה מרות
+  //כאן צריכה להעביר לפי המשתמש אם זה מתנדב להוספת התנדבות ואם מבקש עזרה להוספת בקשת עזרה
+  insert(){
+    this.router.navigate(['/new-help-request']) 
   }
 
 }

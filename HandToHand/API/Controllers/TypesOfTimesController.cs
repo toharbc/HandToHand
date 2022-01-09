@@ -23,9 +23,9 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/TypesOfTimes
-        public void AddTypesOfTimes([FromBody] TypesOfTimesDTO typesOfTimes)
+        public bool AddTypesOfTimes([FromBody] TypesOfTimesDTO typesOfTimes)
         {
-            typesOfTimesBLL.AddTypesOfTimes(typesOfTimes);
+            return typesOfTimesBLL.AddTypesOfTimes(typesOfTimes);
         }
 
     }

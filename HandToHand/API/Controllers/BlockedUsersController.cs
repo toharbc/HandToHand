@@ -23,10 +23,10 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/BlockedUsers
-        public void AddBlockedUsers([FromBody] BlockedUserDTO blockedUser)
+        public bool AddBlockedUsers([FromBody] BlockedUserDTO blockedUser)
         {
 
-            blockedUsersBLL.AddBlockedUsers(blockedUser);
+           return blockedUsersBLL.AddBlockedUsers(blockedUser);
         }
 
        

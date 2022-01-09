@@ -18,9 +18,9 @@ namespace BLL
             return UserConverter.Map(usersDAL.GetAllUsers());
         }
 
-        public void AddUser(UserDTO user)
+        public bool AddUser(UserDTO user)
         {
-            usersDAL.AddUser(UserConverter.Map(user));
+           return usersDAL.AddUser(UserConverter.Map(user));
         }
 
         public long Login(string mail, string password)

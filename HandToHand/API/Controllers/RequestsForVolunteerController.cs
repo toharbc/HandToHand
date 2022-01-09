@@ -25,9 +25,9 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/RequestsForVolunteer
-        public void AddRequestsForVolunteer([FromBody] RequestsForVolunteerDTO requestsForVolunteer)
+        public bool AddRequestsForVolunteer([FromBody] RequestsForVolunteerDTO requestsForVolunteer)
         {
-            requestsForVolunteerBLL.AddRequestsForVolunteer(requestsForVolunteer);
+             return requestsForVolunteerBLL.AddRequestsForVolunteer(requestsForVolunteer);
         }
 
     }

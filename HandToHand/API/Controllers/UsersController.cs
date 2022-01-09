@@ -30,9 +30,9 @@ namespace API.Controllers
         }
         // POST: api/Users
         [HttpPost]
-        public void AddUser([FromBody]UserDTO user)
+        public bool AddUser([FromBody]UserDTO user)
         {
-             usersBLL.AddUser(user);
+            return usersBLL.AddUser(user);
         }
 
        

@@ -17,9 +17,9 @@ namespace BLL
             return ManagerConverter.Map(managerDAL.GetAllManagers());
         }
 
-            public void AddManager(ManagerDTO manager)
+            public bool AddManager(ManagerDTO manager)
         {
-            managerDAL.AddManager(ManagerConverter.Map(manager));
+             return managerDAL.AddManager(ManagerConverter.Map(manager));
         }
     }
 }

@@ -1,26 +1,28 @@
 <p>Welcome Guest</p>
 
-<button  routerLink="/ ">במה נוכל לעזור לך </button>
-
 <div>
     <p>סנן</p>
+    <div>
    שם המתנדב: <input type="text" #name (input)="changeName(name.value)"><br>
+   
+  </div>
   <!-- אזור בארץ:     <select #type1 (change)="changeArea(AreaId.value)">
     <option *ngFor="let item of Area" [value]="item.AreaId">{{item.AreaName}}</option>
   
 </select> 
 -->
+<div>
    תחום התנדבות:
-     <select #type1 (change)="changeVolunteeringType(+type1.value)">
-    <option *ngFor="let item of volunteeringTypes" [value]="item.TypeOfVolunteeringId">{{item.TypeOfVolunteeringName}}</option>
-  
-</select>
-
+    <mat-select #type1 (change)="changeVolunteeringType(+type1.value)">
+    <mat-option *ngFor="let item of volunteeringTypes" [value]="item.TypeOfVolunteeringId">{{item.TypeOfVolunteeringName}}
+</mat-option>
+  </mat-select>
 </div>
 
 <div *ngFor="let v of volunteeringForUsers">
   <p>{{v.UserName}}</p>
   <p>{{v.UserLocation}}</p>
   <p>{{v.TypeOfVolunteerName}}</p>
-  <button (click)="showProfile(v.VolunteeringForUsersId!)">Profile</button>
+  <button mat-raised-button  (click)="showProfile(v.VolunteeringForUsersId!)">Profile</button>
 </div>
+<button  mat-raised-button  class="button" routerLink="/register">הרשמה </button>

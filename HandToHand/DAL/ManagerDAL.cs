@@ -19,12 +19,21 @@ namespace DAL
         }
 
 
-        public void AddManager(Manager manager)
+        public bool AddManager(Manager manager)
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.Managers.Add(manager);
-                db.SaveChanges();
+                try
+                {
+                    db.Managers.Add(manager);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+
+                }
             }
         }
     }

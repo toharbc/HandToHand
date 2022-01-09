@@ -15,12 +15,21 @@ namespace DAL
                 return db.BlockedUsers.ToList();
             }
         }
-        public  void AddBlockedUsers(BlockedUser blockedUser)
+        public  bool AddBlockedUsers(BlockedUser blockedUser)
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.BlockedUsers.Add(blockedUser);
-                db.SaveChanges();
+                try
+                {
+                    db.BlockedUsers.Add(blockedUser);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                    
+                }
             }
 
         }

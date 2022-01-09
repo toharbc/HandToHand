@@ -16,12 +16,20 @@ namespace DAL
             }
         }
 
-        public static void AddRequestsForVolunteer(RequestsForVolunteer requestsForVolunteer)
+        public static bool AddRequestsForVolunteer(RequestsForVolunteer requestsForVolunteer)
         {
             using (HandToHanddEntities db = new HandToHanddEntities())
             {
-                db.RequestsForVolunteers.Add(requestsForVolunteer);
-                db.SaveChanges();
+                try
+                {
+                    db.RequestsForVolunteers.Add(requestsForVolunteer);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
              
         }

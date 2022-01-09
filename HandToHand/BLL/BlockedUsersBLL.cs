@@ -18,9 +18,9 @@ namespace BLL
         }
 
       
-        public  void AddBlockedUsers(BlockedUserDTO blockedUser)
+        public  bool AddBlockedUsers(BlockedUserDTO blockedUser)
         {
-            blockedUsersDAL.AddBlockedUsers(BlockedUsersConverter.Map(blockedUser));
+            return blockedUsersDAL.AddBlockedUsers(BlockedUsersConverter.Map(blockedUser));
         }
     }
 }

@@ -6,14 +6,16 @@ import { HelpRequestsService } from '../../../shared/services/help-requests.serv
 import { TypeOfVolunteeringService } from '../../../shared/services/type-of-volunteering.service';
 
 @Component({
-  selector: 'app-new-help-request',
+  selector: 'new-help-request',
   templateUrl: './new-help-request.component.html',
   styleUrls: ['./new-help-request.component.css']
 })
 export class NewHelpRequestComponent implements OnInit {
 
   helpRequest : HelpRequests = new HelpRequests();
-  typesOfVolunteering:TypeOfVolunteering[]=[]
+  typesOfVolunteering:TypeOfVolunteering[]=[];
+  isShowFind: boolean = false;
+
   constructor(private helpRequestService:HelpRequestsService,
     private typeOfVolenteeringService: TypeOfVolunteeringService,
     private router:Router) { }
@@ -36,10 +38,16 @@ export class NewHelpRequestComponent implements OnInit {
     
   }
   requesterRequests(){
-    this.router.navigate([ 'app-requester-requests'])
+    this.router.navigate(['/requester-requests'])
   }
   findVolunteer(){
-    this.router.navigate([ 'app-find'])
+    // this.router.navigate(['/find'])
+    
+    // if (this.helpRequest.TypeOfVolunteerId != null && 
+    //   this.helpRequest.StartHour != null &&
+    //   this.helpRequest.EndHour != null) {
+        this.isShowFind = true;
+      // }
   }
 
  

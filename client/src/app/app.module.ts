@@ -19,8 +19,76 @@ import { FindComponent } from './components/requester/find/find.component';
 import { AnswerToRequestsComponent } from './components/volunteer/answer-to-requests/answer-to-requests.component';
 import { PersonalInformationComponent } from './components/shared/personal-information/personal-information.component';
 import { RatingComponent } from './components/volunteer/rating/rating.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MitnadevComponent } from './components/volunteer/mitnadev/mitnadev.component';
+import { NeedHelpComponent } from './components/requester/need-help/need-help.component';
+import { MitnadevSpaceComponent } from './components/volunteer/mitnadev-space/mitnadev-space.component'
+import { NeedhelpSpaceComponent } from './components/requester/needhelp-space/needhelp-space.component';
+import { GoComponent } from './components/shared/go/go.component';
 
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {MatButtonModule} from '@angular/material/button';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatRippleModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import {MatStepperModule} from '@angular/material/stepper';
+import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+const materialModules = [
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatButtonToggleModule,
+  MatTreeModule,
+  MatBadgeModule,
+  MatGridListModule,
+  MatRadioModule,
+  MatDatepickerModule,
+  MatTooltipModule,
+  MatStepperModule
+];
 
 
 @NgModule({
@@ -39,7 +107,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     FindComponent,
     AnswerToRequestsComponent,
     PersonalInformationComponent,
-    RatingComponent
+    RatingComponent,
+    MitnadevComponent,
+    NeedHelpComponent,
+    MitnadevSpaceComponent,
+    NeedhelpSpaceComponent,
+    GoComponent,
+    
+ 
   ],
   imports: [
     BrowserModule,
@@ -47,7 +122,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    materialModules
   ],
   providers: [],
   bootstrap: [AppComponent]

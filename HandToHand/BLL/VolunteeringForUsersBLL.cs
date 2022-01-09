@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAL;
+using BLL.Converters;
 
 namespace BLL
 {
@@ -22,9 +23,9 @@ namespace BLL
         //}
 
 
-        public void AddVolunteeringForUsers(VolunteeringForUsersDTO volunteeringForUsers)
+        public bool AddVolunteeringForUsers(VolunteeringForUsersDTO volunteeringForUsers)
         {
-            throw new NotImplementedException();
+            return VolunteeringForUsersDAL.AddVolunteeringForUsers(VolunteeringForUsersConverter.Map(volunteeringForUsers));
         }
     }
 }

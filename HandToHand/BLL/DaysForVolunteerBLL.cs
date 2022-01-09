@@ -17,10 +17,10 @@ namespace BLL
             return DaysForVolunteerConverter.Map(daysForVolunteerDAL.GetAllDaysForVolunteers());
         }
 
-        public void AddDaysForVolunteer(DaysForVolunteerDTO daysForVolunteer)
+        public bool AddDaysForVolunteer(DaysForVolunteerDTO daysForVolunteer)
         {
 
-            daysForVolunteerDAL.AddDaysForVolunteer(DaysForVolunteerConverter.Map(daysForVolunteer));
+           return daysForVolunteerDAL.AddDaysForVolunteer(DaysForVolunteerConverter.Map(daysForVolunteer));
         }
     }
 }

@@ -1,1 +1,8 @@
-<p>find works!</p>
+
+<div *ngIf="volunteers.length==0">לא נמצא מתנדב מתאים</div>
+<div *ngIf="volunteers.length>=0">
+    <div *ngFor="let item of volunteers">
+        <p>{{item.UserId}}</p>
+    </div>
+</div>
+

@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RoutingService } from '../../../shared/services/routing.service';
 
 @Component({
-  selector: 'app-welcome',
+  selector: 'welcome',
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(public routingService:RoutingService) { }
+  constructor(//public routingService:RoutingService,
+     public route:Router) { }
 
-  saveNextRoute(route:string)
-  {
-    this.routingService.NextRoute=route;
-  }
+ // saveNextRoute(route:string)
+  //{
+    //this.routingService.NextRoute=route;
+  //}
 
   ngOnInit(): void {
   }

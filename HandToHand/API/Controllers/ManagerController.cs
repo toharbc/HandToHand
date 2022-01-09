@@ -23,9 +23,9 @@ namespace API.Controllers
 
         [HttpPost]
         // POST: api/Manager
-        public void AddManager([FromBody] ManagerDTO manager)
+        public bool AddManager([FromBody] ManagerDTO manager)
         {
-            managerBLL.AddManager(manager);
+           return managerBLL.AddManager(manager);
         }
 
         

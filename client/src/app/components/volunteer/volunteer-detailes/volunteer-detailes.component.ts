@@ -5,7 +5,7 @@ import { TypeOfVolunteering } from '../../../shared/models/TypeOfVolunteering.mo
 import { TypeOfVolunteeringService } from '../../../shared/services/type-of-volunteering.service';
 
 @Component({
-  selector: 'app-volunteer-detailes',
+  selector: 'volunteer-detailes',
   templateUrl: './volunteer-detailes.component.html',
   
   styleUrls: ['./volunteer-detailes.component.css']
@@ -29,6 +29,6 @@ export class VolunteerDetailesComponent implements OnInit {
 
   }
   myRequest(){
-    this.router.navigate([ 'app-my-request'])
+    this.router.navigate(['/myrequest'])
   }
 }
