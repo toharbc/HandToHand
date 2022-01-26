@@ -22,6 +22,14 @@ namespace BLL
         {
            return usersDAL.AddUser(UserConverter.Map(user));
         }
+        public ETypeUser CheckType(int userId)
+        {
+            return usersDAL.CheckType(userId);
+        }
+        public UserDTO GetUser(int userId)
+        {
+            return UserConverter.Map(usersDAL.GetUser(userId));
+        }
 
         public long Login(string mail, string password)
         {

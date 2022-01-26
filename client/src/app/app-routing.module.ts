@@ -21,6 +21,7 @@ import { RatingComponent } from './components/volunteer/rating/rating.component'
 import { TypeOfVolunteeringComponent } from './components/volunteer/type-of-volunteering/type-of-volunteering.component';
 import { VolunteerDetailesComponent } from './components/volunteer/volunteer-detailes/volunteer-detailes.component';
 
+
 const routes: Routes = [
   {path:'',component:AppComponent},
   {path:'app-root',component:AppComponent},

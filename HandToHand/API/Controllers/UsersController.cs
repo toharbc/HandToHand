@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using BLL;
+using DAL;
 using DTO;
 
 namespace API.Controllers
@@ -34,7 +35,17 @@ namespace API.Controllers
         {
             return usersBLL.AddUser(user);
         }
-
+        [HttpGet]
+        //הפונקציה בודקת את סוג המשתמש לפי מזהה
+        public ETypeUser CheckType(int userId)
+        {
+            return usersBLL.CheckType(userId);
+        }
+        [HttpGet]
+        public UserDTO GetUser(int userId)
+        {
+            return usersBLL.GetUser(userId);
+        }
        
 
        

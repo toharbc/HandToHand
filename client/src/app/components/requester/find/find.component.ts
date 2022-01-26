@@ -21,6 +21,7 @@ export class FindComponent implements OnInit {
 
   ngOnChanges(): void {
     this.getVolunteersForHelpRequest();
+    console.log(this.helpRequest);
   }
 
   getVolunteersForHelpRequest()

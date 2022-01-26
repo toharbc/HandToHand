@@ -26,6 +26,7 @@ export class AppComponent {
   {
  // this.isdisable=false
   this.router.navigate(['/need-help'])
+  
   }
 }
 

@@ -17,8 +17,8 @@ F:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.dll
 F:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.SqlServer.dll
 F:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.xml
 F:\st\project\HandToHand\DAL\bin\Debug\EntityFramework.SqlServer.xml
-F:\st\project\HandToHand\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 F:\st\project\HandToHand\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 F:\st\project\HandToHand\DAL\obj\Debug\DAL.csproj.CopyComplete
 F:\st\project\HandToHand\DAL\obj\Debug\DAL.dll
 F:\st\project\HandToHand\DAL\obj\Debug\DAL.pdb
+F:\st\project\HandToHand\DAL\obj\Debug\DAL.csprojAssemblyReference.cache

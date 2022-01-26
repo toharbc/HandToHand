@@ -35,6 +35,5 @@ namespace DAL
         public virtual DbSet<VolunteeringForUser> VolunteeringForUsers { get; set; }
         public virtual DbSet<DaysForVolunteer> DaysForVolunteers { get; set; }
         public virtual DbSet<Area> Areas { get; set; }
-        public object VolunteeringForUser { get; internal set; }
     }
 }

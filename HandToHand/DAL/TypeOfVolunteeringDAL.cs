@@ -34,5 +34,14 @@ namespace DAL
             }
 
         }
+        public TypeOfVolunteering GetTypeOfVolunteeringById(int typeId)
+        {
+            using (HandToHanddEntities db = new HandToHanddEntities())
+            {
+                TypeOfVolunteering type = db.TypeOfVolunteerings.FirstOrDefault(t => t != null &&
+                t.TypeOfVolunteeringId == typeId);
+                return type;
+            }
+        }
     }
 }

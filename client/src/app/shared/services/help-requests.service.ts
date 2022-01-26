@@ -26,7 +26,7 @@ export class HelpRequestsService {
   }
   getVolunteersForHelpRequest(helpRequest: HelpRequests):Observable<VolunteeringForUsers[]>
   {
-    return this.http.get<VolunteeringForUsers[]>(environment.serverUrl+'HelpRequests/GetVolunteersForHelpRequest?helpRequest='+helpRequest);
+    return this.http.get<VolunteeringForUsers[]>(environment.serverUrl+'HelpRequests/GetVolunteersForHelpRequest?helpRequest='+JSON.stringify(helpRequest));
   }
 
  

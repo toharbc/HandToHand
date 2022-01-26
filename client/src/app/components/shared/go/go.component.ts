@@ -14,6 +14,7 @@ export class GoComponent implements OnInit {
   }
 
   home(){
+    sessionStorage.removeItem("user");
     this.router.navigate(['/app-root'])
   }
 }

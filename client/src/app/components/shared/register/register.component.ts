@@ -12,35 +12,48 @@ import { Users } from '../../../shared/models/Users.model';
 })
 export class RegisterComponent implements OnInit {
 
-  user:Users=new Users();
-  constructor(private userService:UsersService,
-     private routingService:RoutingService,
-     private router:Router
-     ) { }
+  confirmPassword: string = '';
+  user: Users = new Users();
+  constructor(private userService: UsersService,
+    private routingService: RoutingService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
-  register()
-  {
-    console.log(this.user)
-    this.userService.addUser(this.user).subscribe(
-      res=> {
-        alert(res?'נרשמת למערכת בהצלחה'
-        :'קרתה תקלה בהרשמה');
-        this.router.navigate([this.routingService.NextRoute]);
-      },
-      err=>console.error(err)
-      );
-    
+  register() {
+    if (this.user.UserFirstName != undefined &&
+      this.user.UserLastName != undefined &&
+      this.user.UserAdress != undefined &&
+      this.user.UserMail != undefined &&
+      this.user.UserPhone != undefined) {
+      if (this.user.UserPassword == this.confirmPassword) {
+        this.userService.addUser(this.user).subscribe(
+          res => {
+            alert(res ? 'נרשמת למערכת בהצלחה'
+              : 'קרתה תקלה בהרשמה');
+            this.router.navigate([this.routingService.NextRoute]);
+          },
+          err => console.error(err)
+        );
+      }
+      else {
+        alert('הסיסמה לא תקינה');
+      }
+    }
+    else {
+      alert("חובה למלא את כל השדות");
+    }
+
   }
-  login(){
+  login() {
     this.router.navigate(['/login'])
   }
   //לקחת את הפונקציה מרות
   //כאן צריכה להעביר לפי המשתמש אם זה מתנדב להוספת התנדבות ואם מבקש עזרה להוספת בקשת עזרה
-  insert(){
-    this.router.navigate(['/new-help-request']) 
+  insert() {
+    this.router.navigate(['/new-help-request'])
   }
 
 }

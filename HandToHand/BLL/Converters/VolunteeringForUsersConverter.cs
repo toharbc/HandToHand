@@ -25,18 +25,32 @@ namespace BLL.Converters
 
         public static VolunteeringForUsersDTO Map(VolunteeringForUser volunteeringForUser)
         {
-            return new VolunteeringForUsersDTO
+            if (volunteeringForUser != null)
             {
-                VolunteeringForUsersId = volunteeringForUser.VolunteeringForUsersId,
-                TypeOfVolunteerId = volunteeringForUser.TypeOfVolunteerId,
-                UserId = volunteeringForUser.UserId,
-                TypeOfVolunteerName= volunteeringForUser.TypeOfVolunteering.TypeOfVolunteeringName,
-                UserLocation= volunteeringForUser.User.UserAdress,
-                AreaId=volunteeringForUser.User.AreaId.Value,
-                AreaName=volunteeringForUser.User.Area.AreaName,
-                UserName= volunteeringForUser.User.UserFirstName+" "+ volunteeringForUser.User.UserLastName
-
-            };
+                VolunteeringForUsersDTO newVolunteer = new VolunteeringForUsersDTO();
+                newVolunteer.VolunteeringForUsersId = volunteeringForUser.VolunteeringForUsersId;
+                newVolunteer.TypeOfVolunteerId = volunteeringForUser.TypeOfVolunteerId;
+                newVolunteer.UserId = volunteeringForUser.UserId;
+                if (volunteeringForUser.TypeOfVolunteering != null)
+                {
+                    newVolunteer.TypeOfVolunteerName = volunteeringForUser.TypeOfVolunteering.TypeOfVolunteeringName;
+                }
+                if (volunteeringForUser.User != null)
+                {
+                    newVolunteer.UserLocation = volunteeringForUser.User.UserAdress;
+                    if (volunteeringForUser.User.AreaId != null)
+                    {
+                        newVolunteer.AreaId = volunteeringForUser.User.AreaId.Value;
+                    }
+                    if (volunteeringForUser.User.Area != null)
+                    {
+                        newVolunteer.AreaName = volunteeringForUser.User.Area.AreaName;
+                    }
+                    newVolunteer.UserName = volunteeringForUser.User.UserFirstName + " " + volunteeringForUser.User.UserLastName;
+                }
+                return newVolunteer;
+            }
+            return null;
         }
 
         public static List<VolunteeringForUsersDTO> Map(List<VolunteeringForUser> volunteeringForUsers)

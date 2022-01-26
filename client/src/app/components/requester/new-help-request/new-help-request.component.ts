@@ -22,8 +22,8 @@ export class NewHelpRequestComponent implements OnInit {
 
   ngOnInit(): void {
      this.typeOfVolenteeringService.getAllTypeOfVolunteerings().subscribe(
-      res=>this.typesOfVolunteering=res
-    )
+      res=>{this.typesOfVolunteering=res;console.log(this.typesOfVolunteering)}
+    );
   }
 
 
@@ -48,6 +48,7 @@ export class NewHelpRequestComponent implements OnInit {
     //   this.helpRequest.EndHour != null) {
         this.isShowFind = true;
       // }
+      
   }
 
  

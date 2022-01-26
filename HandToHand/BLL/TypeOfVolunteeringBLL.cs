@@ -22,5 +22,9 @@ namespace BLL
         {
            return TypeOfVolunteeringDAL.AddTypeOfVolunteering(TypeOfVolunteeringConverter.Map(typeOfVolunteering));
         }
+        public TypeOfVolunteeringDTO GetTypeOfVolunteeringById(int typeId)
+        {
+            return TypeOfVolunteeringConverter.Map(typeOfVolunteeringDAL.GetTypeOfVolunteeringById(typeId));
+        }
     }
 }

@@ -14,4 +14,8 @@ export class TypeOfVolunteeringService {
   {
     return this.http.get<TypeOfVolunteering[]>(environment.serverUrl+'TypeOfVolunteering')
   }
+
+  getTypeOfVolunteeringById(typeId: number): Observable<TypeOfVolunteering> {
+    return this.http.get<TypeOfVolunteering>(environment.serverUrl+'TypeOfVolunteering/GetTypeOfVolunteeringById?typeId=' + typeId);
+  }
 }

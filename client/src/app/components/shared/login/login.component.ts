@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RoutingService } from '../../../shared/services/routing.service';
-import { UsersService } from '../../../shared/services/users.service';
+import { ETypeUser, UsersService } from '../../../shared/services/users.service';
 
 
 @Component({
@@ -11,8 +11,9 @@ import { UsersService } from '../../../shared/services/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  mail:string=''
-  password:string=''
+  mail:string='';
+  password:string='';
+  typeUser:ETypeUser=ETypeUser.Other;
   constructor(private userService:UsersService,
     private routingService:RoutingService,
     private router:Router
@@ -25,10 +26,19 @@ export class LoginComponent implements OnInit {
   {
     this.userService.login(this.mail,this.password).subscribe(
       res=> {
-        sessionStorage.setItem('user',res.toString())
+        sessionStorage.setItem('user',res.toString());
+        // הפונקצייה בודקת מאיזה סוג המשתמש
+        this.checkType(res);
         this.router.navigate([this.routingService.NextRoute])
       },
     )
+  }
+  checkType(userId: number): void {
+    this.userService.checkType(userId)
+    .subscribe(res => {
+      this.typeUser = res;
+      console.log(this.typeUser);
+    }, err => console.log(err));
   }
   needhelpSpace(){
     this.router.navigate(['/needhelp-space'])
