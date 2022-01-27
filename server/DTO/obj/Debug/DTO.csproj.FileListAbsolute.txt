@@ -1,0 +1,17 @@
+E:\st\project\HandToHand\DTO\bin\Debug\DTO.dll
+E:\st\project\HandToHand\DTO\bin\Debug\DTO.pdb
+E:\st\project\HandToHand\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+E:\st\project\HandToHand\DTO\obj\Debug\DTO.dll
+E:\st\project\HandToHand\DTO\obj\Debug\DTO.pdb
+E:\st\project\HandToHand\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+F:\st\project\HandToHand\DTO\bin\Debug\DTO.dll
+F:\st\project\HandToHand\DTO\bin\Debug\DTO.pdb
+F:\st\project\HandToHand\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
+F:\st\project\HandToHand\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+F:\st\project\HandToHand\DTO\obj\Debug\DTO.dll
+F:\st\project\HandToHand\DTO\obj\Debug\DTO.pdb
+F:\st\project\server\DTO\bin\Debug\DTO.dll
+F:\st\project\server\DTO\bin\Debug\DTO.pdb
+F:\st\project\server\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
+F:\st\project\server\DTO\obj\Debug\DTO.dll
+F:\st\project\server\DTO\obj\Debug\DTO.pdb

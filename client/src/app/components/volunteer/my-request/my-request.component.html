@@ -1,9 +1,0 @@
-<h2>הבקשות שלי</h2>
-<div *ngFor="let item of fullHelpRequests">
-    <span>{{item.UserName}}</span>
-    <span>{{item.TypeOfVolunteering}}</span>
-<span>{{item.StartDate | date}}</span>
-<span>{{item.EndDate | date}}</span>
-<button mat-raised-button (click)="reject(item)">דחה</button>
-<button mat-raised-button (click)="confirm(item)">אשר</button>
-</div>

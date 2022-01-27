@@ -1,0 +1,86 @@
+<form class="mat-form-field" (ngSubmit)="register()">
+<!-- <div> -->
+    <!-- <p>מייל</p> -->
+    <!-- <input type="email" name="email" [(ngModel)]="user.UserMail"> -->
+    <mat-form-field appearance="fill">
+        <mat-label>מייל </mat-label>
+        <input matInput placeholder=" מייל" type="email" name="email" [(ngModel)]="user.UserMail">
+      </mat-form-field>
+<!-- </div> -->
+
+<!-- <div > -->
+    <!-- <p>שם פרטי</p> -->
+    <!-- <input type="text" name="first-name" [(ngModel)]="user.UserFirstName"> -->
+
+    <mat-form-field appearance="fill">
+        <mat-label>שם פרטי</mat-label>
+        <input matInput placeholder="שם פרטי" type="text" name="first-name" [(ngModel)]="user.UserFirstName">
+      </mat-form-field>
+<!-- </div> -->
+<!-- <div> -->
+    <!-- <p>שם משפחה</p> -->
+    <!-- <input type="text" name="last-name" [(ngModel)]="user.UserLastName"> -->
+    <mat-form-field appearance="fill">
+        <mat-label>שם משפחה</mat-label>
+        <input matInput placeholder="שם משפחה" type="text" name="last-name" [(ngModel)]="user.UserLastName">
+      </mat-form-field>
+<!-- </div> -->
+    <!-- <div> -->
+        <!-- <p>טלפון</p> -->
+    <!-- <input type="tel" name="phone" [(ngModel)]="user.UserPhone"> -->
+    <mat-form-field appearance="fill">
+        <mat-label>טלפון </mat-label>
+        <input matInput placeholder="טלפון " type="tel" name="phone" [(ngModel)]="user.UserPhone">
+      </mat-form-field>
+<!-- </div> -->
+
+    <!-- <div> -->
+        <!-- <p>סיסמה</p> -->
+    <!-- <input type="password" name="password" [(ngModel)]="user.UserPassword"> -->
+    <mat-form-field appearance="fill">
+        <mat-label>סיסמה </mat-label>
+        <input matInput placeholder=" סיסמה" type="password" name="password" [(ngModel)]="user.UserPassword">
+      </mat-form-field>
+<!-- </div> -->
+
+    <!-- <div> -->
+        <!-- <p>אשר סיסמה</p>
+    <input type="password" name="password-confirm" [(ngModel)]="confirmPassword" > -->
+    <mat-form-field appearance="fill">
+        <mat-label>אשר סיסמה</mat-label>
+        <input matInput placeholder="אשר סיסמה" type="password" name="password-confirm" [(ngModel)]="confirmPassword">
+      </mat-form-field>
+<!-- </div> -->
+
+
+    <!-- <div> -->
+        <!-- <p>כתובת</p> -->
+    <!-- <input type="text" name="address" [(ngModel)]="user.UserAdress"> -->
+    <mat-form-field appearance="fill">
+        <mat-label>כתובת </mat-label>
+        <input matInput placeholder=" כתובת" type="text" name="address" [(ngModel)]="user.UserAdress">
+      </mat-form-field>
+    <!-- </div> -->
+   <!-- <div>
+        <p>אזור</p>
+
+    
+        <select  name="selectedArea" [(ngModel)]="Area.AreaId">
+            <option *ngFor="let item of Areas" [value]="item.AreaId">{{item.AreaName}}</option>
+          
+        </select>
+    </div>-->
+
+    <mat-radio-group dir="rtl">
+        <mat-radio-button value="1">מתנדב</mat-radio-button>
+        <mat-radio-button value="2">צריך עזרה</mat-radio-button>
+      </mat-radio-group>
+
+    <button mat-raised-button type="submit" >הרשם</button>
+   
+</form>
+
+<button mat-raised-button routerLink="/login">כבר יש לך חשבון? התחבר</button>
+<!-- <button (click)="login()">כבר יש לך חשבון? היכנס</button> -->
+
+

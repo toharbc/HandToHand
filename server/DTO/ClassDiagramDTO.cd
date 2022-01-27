@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DTO.BlockedUserDTO">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BlockedUserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.DaysForVolunteerDTO">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgBAAAAAAAAAAAAAgAAQAAACAAAAEAAAAEAAAAAAA=</HashCode>
+      <FileName>DaysForVolunteerDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.HelpRequestsDTO">
+    <Position X="6.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAQAAAAAAEAgAAAAAAAIAAAABEAAAAA=</HashCode>
+      <FileName>HelpRequestsDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.ManagerDTO">
+    <Position X="3.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAIAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>ManagerDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.ProfileDTO">
+    <Position X="1.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAIAA=</HashCode>
+      <FileName>ProfileDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.RequestsForVolunteerDTO">
+    <Position X="5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAEAAAAAEAAAAAAAEAAACAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>RequestsForVolunteerDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.TypeOfVolunteeringDTO">
+    <Position X="7.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeOfVolunteeringDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.TypesOfTimesDTO">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>TypesOfTimesDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.UserDTO">
+    <Position X="1.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAACAAAACgAAAAAAAAAIAgAAAIAAEA=</HashCode>
+      <FileName>UserDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.VolunteeringForUsersDTO">
+    <Position X="8.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAEAAAAAAAAAgAAAAAEAAAIQAABACAAAA=</HashCode>
+      <FileName>VolunteeringForUsersDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

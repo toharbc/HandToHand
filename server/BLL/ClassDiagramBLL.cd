@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BLL.DaysForVolunteerBLL">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAACAAAAAAAAEAAAAA=</HashCode>
+      <FileName>DaysForVolunteerBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.BlockedUsersBLL">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAACAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BlockedUsersBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.HelpRequestsBLL">
+    <Position X="1.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAgAAAAAAAAAAAMAIAAAAAAAAAAAAAEAgA=</HashCode>
+      <FileName>HelpRequestsBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.ManagerBLL">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAgAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ManagerBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.RequestsForVolunteerBLL">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAQAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RequestsForVolunteerBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.TypeOfVolunteeringBLL">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAiAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypeOfVolunteeringBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.TypesOfTimesBLL">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TypesOfTimesBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.UsersBLL">
+    <Position X="3.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAQAAEAAAA=</HashCode>
+      <FileName>UsersBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BLL.VolunteeringForUsersBLL">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>VolunteeringForUsersBLL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

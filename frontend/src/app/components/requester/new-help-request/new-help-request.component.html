@@ -1,0 +1,66 @@
+<p>new-help-request works!</p>
+<form (ngSubmit)="newHelpRequest()">
+    <div>
+        <p>סוג בקשה</p>
+        <mat-select
+          name="requestType" [(ngModel)]="helpRequest.TypeOfVolunteerId">
+     <mat-option *ngFor="let item of typesOfVolunteering" [value]="item.TypeOfVolunteeringId">
+         {{item.TypeOfVolunteeringName}}
+        </mat-option>
+        </mat-select>
+
+        <!-- {{helpRequest.TypeOfVolunteerId}} -->
+    </div>
+    
+    <!-- <div>
+        <p>פירוט </p>
+        <input type="text" name="Details" [(ngModel)]="helpRequest.UserFirstName">
+    </div> -->
+    <div>
+        <!-- <p> מתאריך</p> -->
+        <!-- <input type="date" name="date" [(ngModel)]="helpRequest.StartDate"> -->
+        <mat-form-field appearance="fill">
+            <mat-label>מתאריך</mat-label>
+            <input matInput placeholder=" מתאריך" type="date" name="date" [(ngModel)]="helpRequest.StartDate">
+          </mat-form-field>
+    </div>
+        <div>
+            <!-- <p>עד לתאריך</p> -->
+        <!-- <input type="date" name="endDate" [(ngModel)]="helpRequest.EndDate"> -->
+        <mat-form-field appearance="fill">
+            <mat-label>עד לתאריך</mat-label>
+            <input matInput placeholder=" עד לתאריך" type="date" name="endDate" [(ngModel)]="helpRequest.EndDate">
+          </mat-form-field>
+    </div>
+    
+        <div>
+            <!-- <p>משעה</p> -->
+        <!-- <input type="time" name="start-time" [(ngModel)]="helpRequest.StartHour"> -->
+        <mat-form-field appearance="fill">
+            <mat-label> משעה</mat-label>
+            <input matInput placeholder=" משעה " type="time" name="start-time" [(ngModel)]="helpRequest.StartHour">
+          </mat-form-field>
+    </div>
+
+    <div>
+        <!-- <mat-label>עד שעה</mat-label> -->
+    <!-- <input type="time" name="end-time" [(ngModel)]="helpRequest.EndHour"> -->
+    <mat-form-field appearance="fill">
+        <mat-label>  עד שעה</mat-label>
+        <input matInput placeholder=" עד שעה " type="time" name="end-time" [(ngModel)]="helpRequest.EndHour">
+      </mat-form-field>
+</div>
+    
+   
+    
+       
+<button mat-raised-button (click)="findVolunteer()">מצא מתנדב</button>
+    
+</form>
+
+
+    <!-- <div *ngFor="let item of typesOfVolunteering">
+        <p>{{item.TypeOfVolunteeringName}}</p>
+    </div> -->
+    <button mat-raised-button (click)="requesterRequests()">הבקשות שלי</button>
+<find *ngIf="isShowFind" [helpRequest]="helpRequest"></find>

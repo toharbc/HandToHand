@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HandToHanddModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Areas">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AreaName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BlockedUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DaysForVolunteer">
+    <Key>
+      <PropertyRef Name="DaysForVolunteerId" />
+    </Key>
+    <Property Name="DaysForVolunteerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DayofWeek" Type="bigint" Nullable="false" />
+    <Property Name="HourStart" Type="time" Precision="7" Nullable="false" />
+    <Property Name="HourEnd" Type="time" Precision="7" Nullable="false" />
+    <Property Name="RangeHours" Type="bigint" Nullable="false" />
+    <Property Name="TypesOfTimesId" Type="bigint" Nullable="false" />
+    <Property Name="VolunteerId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HelpRequests">
+    <Key>
+      <PropertyRef Name="HelpRequestId" />
+    </Key>
+    <Property Name="HelpRequestId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RequesterId" Type="bigint" Nullable="false" />
+    <Property Name="TypeOfVolunteerId" Type="bigint" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="StartHour" Type="time" Precision="7" Nullable="false" />
+    <Property Name="EndHour" Type="time" Precision="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Manager">
+    <Key>
+      <PropertyRef Name="ManagerId" />
+    </Key>
+    <Property Name="ManagerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RequestsForVolunteer">
+    <Key>
+      <PropertyRef Name="RequestForVolunteerId" />
+    </Key>
+    <Property Name="RequestForVolunteerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HelpRequestId" Type="bigint" Nullable="false" />
+    <Property Name="VolunteerId" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Done" Type="bit" Nullable="false" />
+    <Property Name="Review" Type="bigint" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeOfVolunteering">
+    <Key>
+      <PropertyRef Name="TypeOfVolunteeringId" />
+    </Key>
+    <Property Name="TypeOfVolunteeringId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeOfVolunteeringName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypesOfTimes">
+    <Key>
+      <PropertyRef Name="TypesOfTimesId" />
+    </Key>
+    <Property Name="TypesOfTimesId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypesOfTimesName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserFirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserLastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserPhone" Type="bigint" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserMail" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserAdress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AreaId" Type="int" />
+  </EntityType>
+  <EntityType Name="VolunteeringForUsers">
+    <Key>
+      <PropertyRef Name="VolunteeringForUsersId" />
+    </Key>
+    <Property Name="VolunteeringForUsersId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeOfVolunteerId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__BlockedUs__UserI__25869641">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="BlockedUsers" Type="Self.BlockedUsers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="BlockedUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DaysForVo__Types__300424B4">
+    <End Role="TypesOfTimes" Type="Self.TypesOfTimes" Multiplicity="1" />
+    <End Role="DaysForVolunteer" Type="Self.DaysForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypesOfTimes">
+        <PropertyRef Name="TypesOfTimesId" />
+      </Principal>
+      <Dependent Role="DaysForVolunteer">
+        <PropertyRef Name="TypesOfTimesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DaysForVo__Volun__30F848ED">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="DaysForVolunteer" Type="Self.DaysForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DaysForVolunteer">
+        <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HelpReque__Reque__37A5467C">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="HelpRequests" Type="Self.HelpRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="HelpRequests">
+        <PropertyRef Name="RequesterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__HelpReque__TypeO__38996AB5">
+    <End Role="TypeOfVolunteering" Type="Self.TypeOfVolunteering" Multiplicity="1" />
+    <End Role="HelpRequests" Type="Self.HelpRequests" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfVolunteering">
+        <PropertyRef Name="TypeOfVolunteeringId" />
+      </Principal>
+      <Dependent Role="HelpRequests">
+        <PropertyRef Name="TypeOfVolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsF__HelpR__3B75D760">
+    <End Role="HelpRequests" Type="Self.HelpRequests" Multiplicity="1" />
+    <End Role="RequestsForVolunteer" Type="Self.RequestsForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HelpRequests">
+        <PropertyRef Name="HelpRequestId" />
+      </Principal>
+      <Dependent Role="RequestsForVolunteer">
+        <PropertyRef Name="HelpRequestId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RequestsF__Volun__3C69FB99">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="RequestsForVolunteer" Type="Self.RequestsForVolunteer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="RequestsForVolunteer">
+        <PropertyRef Name="VolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__AreaId__49C3F6B7">
+    <End Role="Areas" Type="Self.Areas" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Areas">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Volunteer__TypeO__31EC6D26">
+    <End Role="TypeOfVolunteering" Type="Self.TypeOfVolunteering" Multiplicity="1" />
+    <End Role="VolunteeringForUsers" Type="Self.VolunteeringForUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfVolunteering">
+        <PropertyRef Name="TypeOfVolunteeringId" />
+      </Principal>
+      <Dependent Role="VolunteeringForUsers">
+        <PropertyRef Name="TypeOfVolunteerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Volunteer__UserI__32E0915F">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="VolunteeringForUsers" Type="Self.VolunteeringForUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="VolunteeringForUsers">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HandToHanddModelStoreContainer">
+    <EntitySet Name="Areas" EntityType="Self.Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BlockedUsers" EntityType="Self.BlockedUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DaysForVolunteer" EntityType="Self.DaysForVolunteer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HelpRequests" EntityType="Self.HelpRequests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Manager" EntityType="Self.Manager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RequestsForVolunteer" EntityType="Self.RequestsForVolunteer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeOfVolunteering" EntityType="Self.TypeOfVolunteering" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypesOfTimes" EntityType="Self.TypesOfTimes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VolunteeringForUsers" EntityType="Self.VolunteeringForUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BlockedUs__UserI__25869641" Association="Self.FK__BlockedUs__UserI__25869641">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BlockedUsers" EntitySet="BlockedUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DaysForVo__Types__300424B4" Association="Self.FK__DaysForVo__Types__300424B4">
+      <End Role="TypesOfTimes" EntitySet="TypesOfTimes" />
+      <End Role="DaysForVolunteer" EntitySet="DaysForVolunteer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DaysForVo__Volun__30F848ED" Association="Self.FK__DaysForVo__Volun__30F848ED">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="DaysForVolunteer" EntitySet="DaysForVolunteer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HelpReque__Reque__37A5467C" Association="Self.FK__HelpReque__Reque__37A5467C">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="HelpRequests" EntitySet="HelpRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__HelpReque__TypeO__38996AB5" Association="Self.FK__HelpReque__TypeO__38996AB5">
+      <End Role="TypeOfVolunteering" EntitySet="TypeOfVolunteering" />
+      <End Role="HelpRequests" EntitySet="HelpRequests" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsF__HelpR__3B75D760" Association="Self.FK__RequestsF__HelpR__3B75D760">
+      <End Role="HelpRequests" EntitySet="HelpRequests" />
+      <End Role="RequestsForVolunteer" EntitySet="RequestsForVolunteer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RequestsF__Volun__3C69FB99" Association="Self.FK__RequestsF__Volun__3C69FB99">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RequestsForVolunteer" EntitySet="RequestsForVolunteer" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__AreaId__49C3F6B7" Association="Self.FK__Users__AreaId__49C3F6B7">
+      <End Role="Areas" EntitySet="Areas" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Volunteer__TypeO__31EC6D26" Association="Self.FK__Volunteer__TypeO__31EC6D26">
+      <End Role="TypeOfVolunteering" EntitySet="TypeOfVolunteering" />
+      <End Role="VolunteeringForUsers" EntitySet="VolunteeringForUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Volunteer__UserI__32E0915F" Association="Self.FK__Volunteer__UserI__32E0915F">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="VolunteeringForUsers" EntitySet="VolunteeringForUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

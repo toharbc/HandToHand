@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="API.Controllers.BlockedUsersController">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAACAABAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\BlockedUsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.DaysForVolunteerController">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAACAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\DaysForVolunteerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.HelpRequestsController">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAgAAAAAAAAAAAAAIEAAAAAAAAAAAAEAgA=</HashCode>
+      <FileName>Controllers\HelpRequestsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.ManagerController">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAFAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ManagerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.RequestsForVolunteerController">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAQAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\RequestsForVolunteerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.TypeOfVolunteeringController">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAgAAAACAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\TypeOfVolunteeringController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.TypesOfTimesController">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\TypesOfTimesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.UsersController">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAAAAAAAAAAAAAAAAAAAAAAAAgEAAQAAEAAAA=</HashCode>
+      <FileName>Controllers\UsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="API.Controllers.VolunteeringForUsersController">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAACAAAAAAAAACAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Controllers\VolunteeringForUsersController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

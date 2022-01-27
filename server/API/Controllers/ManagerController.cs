@@ -1,0 +1,33 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using BLL;
+using DTO;
+
+namespace API.Controllers
+{
+    [EnableCors("*", "*", "*")]
+    public class ManagerController : ApiController
+    {
+        ManagerBLL managerBLL = new ManagerBLL();
+        [HttpGet]
+        // GET: api/Manager
+        public List<ManagerDTO> GetAllManagers()
+        {
+            return managerBLL.GetAllManagers();
+        }
+
+        [HttpPost]
+        // POST: api/Manager
+        public bool AddManager([FromBody] ManagerDTO manager)
+        {
+           return managerBLL.AddManager(manager);
+        }
+
+        
+    }
+}
